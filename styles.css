@@ -346,6 +346,9 @@ p:hover span{
 
 .user {
     
-    font-size:50px;
+    position: absolute;
+    z-index:105;
+    font-size:20px;
+    left: 80%;
     
 }

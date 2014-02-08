@@ -154,7 +154,7 @@
      <img src="logintriangle.png" class="triangle">
         <img src="locarrowone.png" class="locarrowone">
         <img src="locarrowtwo.png" class="locarrowtwo">
-      <p><img src="infologo.png" class="infologo" href="registration.php"><span></span></p>
+     <?php if(!isset($_SESSION['loggedin'])){?>  <p><img src="infologo.png" class="infologo" href="registration.php"><span></span></p><?php } ?>s
 
         
       <!--  <div id="Hotspot";> 
@@ -163,15 +163,6 @@
         
 
 		
-
-		
-		
-        
-            
-			
-            
-        
-            
             
             
             
