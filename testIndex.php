@@ -75,10 +75,12 @@
 	<head>
 		<title>HotSpot!</title>
         <link rel="stylesheet" href="styles.css" />
+        <script src="modernizr.js"></script>
+
 	</head>
 	
 	<body>
-        <div id="topbar";> </div>
+        <div id="topbar" width="100%";> </div>
         
         <div id="logo";>  </div>
         
