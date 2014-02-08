@@ -16,6 +16,6 @@
 	mysql_connect($host, $user, $pass);
 	mysql_select_db($db);
 	
-	mysql_query("INSERT INTO users (username, password) VALUES ('Justin', 'test2')");
+	mysql_query("INSERT INTO `heroku_807bde1acfd096e`.`hackbean` (`username`, `password`) VALUES ('Justin', 'test2')");
 ?>
 
