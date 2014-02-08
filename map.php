@@ -55,7 +55,7 @@
 	
 	//Convert to array
 	$obj = json_decode($request->body, true);
-
+	
 	$data;
 	
 	$i = 0;
@@ -93,9 +93,11 @@
       html, body, #map-canvas {
             
         height: 100%;
-        margin: 0px;
-        padding: 0px
-                
+        margin-top: 10px;
+        margin-left: 0px;
+        maring-right: 0px;
+        padding: 0px;
+        overflow: hidden;
       }
         
     </style>
@@ -103,14 +105,30 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
       
     <script>
-        
+
+    $(window).scroll(function() {
+        scroll(0,0);
+    });
+    
 	var map;
 	        
 	function initialize() {
-	    
+
+	  var lati, longi;
+
+	  if(typeof place[0]['latitude'] != 'undefined')
+	  {
+		  lati = place[0]['latitude'];
+		  longi = place[0]['longitude'];
+	  }
+	  else
+	  {
+		  lati = <?php echo $data[0]['lat']; ?>;
+		  longi = <?php echo $data[0]['long']; ?>;
+	  }
 	  var mapOptions = {
 	    zoom: 10,
-	    center: new google.maps.LatLng(place[0]['latitude'], place[0]['longitude'])
+	    center: new google.maps.LatLng(lati,longi)
 	  };
 	    
 	  map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -139,9 +157,10 @@
 		//Bind Info window and marker
 		bindInfoWindow(marker, map, infowindow, $content);
 	  }
-	  
+
+
 	  drawYou();
-	  
+
 	}
 	
 	google.maps.event.addDomListener(window, 'load', initialize);
@@ -236,24 +255,41 @@
     		position: absolute; 
     		top: 0px;
     		left: 0px;
-    		z-index: 10
+    		z-index: 10;
+    		overflow: hidden;
+    	}
+    	
+    	.submitButton
+    	{
+    		background-color: #F0F0F0;
+    		border: 1px solid #DDD;
+    		height: 30px;
+    		width: 70px;
+    		border-radius: 5px;
+    	}
+    	.submitButton:hover
+    	{	
+    		cursor: pointer;
+    		background-color: #FFF;
     	}
     
     </style>
   </head>
-  <body style="overflow:hidden;">
+  <body>
 	<div class="navbar">
-		<form action="group.php" method="post">
+		<form action="group.php" method="post" style="display:inline;margin: 0px; padding: 0px;">
 			<input class="textboxs" placeholder="Add New Location" type="textbox" name="search"/>
-			<input type="submit" />
+			<input class="submitButton" type="submit" />
 			<input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
 			<input type="hidden" name="addToGroupSearch"/>
 		</form>
+		<form action="group.php" method="post" style="display:inline;margin: 0px; padding: 0px;">
+			<input class="submitButton" type="submit" style="margin-left: 90px; width: 200px;" value="Add Your Location"/>
+		</form>
 	</div>
+	<div 
     <div id="map-canvas"></div>
-    
-    	
-    
+       
    <!-- <img src="hotspot.png" style="opacity: 1; margin: 5px; position: absolute; bottom: 10px; left: 10px;" height="200px" width="200px"/>-->
   </body>
 </html>

@@ -41,37 +41,71 @@ if(isset($_SESSION['loggedin']))
 		
 		$search = $_POST['search'];
 		
-		//Get Request
-		$request = Requests::get('http://api.tripadvisor.com/api/partner/1.0/search/'.$search.'?category=geos&key=92C34F58BB4F4E03894F5D171B79857E&limit=50');
+		if($search != "")
+		{
+			//Get Request
+			$request = Requests::get('http://api.tripadvisor.com/api/partner/1.0/search/'.$search.'?category=geos&key=92C34F58BB4F4E03894F5D171B79857E&limit=50');
+			
+			//Convert to array
+			$obj = json_decode($request->body, true);
+			
 		
-		//Convert to array
-		$obj = json_decode($request->body, true);
+			
+			if(isset($obj['geos'][0]))
+			{
+				$lat = $obj['geos'][0]['latitude'];
+				$long =$obj['geos'][0]['longitude'];
+				
+				$id = $_POST['id'];
+				if($result = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`group` WHERE id=$id"))
+				{
+					$row = mysql_fetch_assoc($result);
+					
+					$data = json_decode($row['users'], true);
+					$i = sizeof($data);
+					$data[$i]['userid'] = '-1';			
+					$data[$i]['long'] = $long;
+					$data[$i]['lat'] = $lat;
 		
-		$lat = $obj['geos'][0]['latitude'];
-		$long =$obj['geos'][0]['longitude'];
-		$id = $_POST['id'];
+					$json = json_encode($data);
+					echo $json;
+					mysql_query("UPDATE `heroku_807bde1acfd096e`.`group` SET users='$json' WHERE id=$id ")
+						or die(mysql_error());
+						
+					header("Location: map.php?id=".$id);					
+				}	
+				
+			}
+			else
+			{
+				$id = $_POST['id'];
+				header("Location: map.php?id=".$id);
+			}
+		}	
+	}
+	else if(isset($_POST['addToGroupGeo']))
+	{
+		$lat = $_POST['lat'];
+		$long = $_POST['long'];
+		$id = $_POST['id'];	
+		
 		if($result = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`group` WHERE id=$id"))
 		{
 			$row = mysql_fetch_assoc($result);
-			
+				
 			$data = json_decode($row['users'], true);
 			$i = sizeof($data);
-			$data[$i]['userid'] = '-1';			
+			$data[$i]['userid'] = $_SESSION['userid'];
 			$data[$i]['long'] = $long;
 			$data[$i]['lat'] = $lat;
-
+		
 			$json = json_encode($data);
 			echo $json;
 			mysql_query("UPDATE `heroku_807bde1acfd096e`.`group` SET users='$json' WHERE id=$id ")
-				or die(mysql_error());
-				
-			header("Location: map.php?id=".$id);
-			
+			or die(mysql_error());
+		
+			header("Location: map.php?id=".$id);				
 		}
-		echo $lat;
-		echo $long;
-		
-		
 	}
 }
 else
