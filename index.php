@@ -151,9 +151,9 @@
         
         
         <img src="hotspot.png" href="http://secure-waters-3897.herokuapp.com/index.php"      class="logo" alt="HotSpot"> 
-     <!--   <img src="logintriangle.png" class="triangle">
+     <img src="logintriangle.png" class="triangle">
         <img src="locarrowone.png" class="locarrowone">
-        <img src="locarrowtwo.png" class="locarrowtwo"> --> 
+        <img src="locarrowtwo.png" class="locarrowtwo">
       <p><img src="infologo.png" class="infologo" href="registration.php"><span></span></p>
 
         
@@ -162,13 +162,7 @@
         </div> -->
         
 
-		 <form action="index.php" method="post">
-            
-            <input type="text" class="username" name="username" /><br>
-			<input type="password" class="password" name="password"/>
-			<input type="hidden" name="CreateAccount"/> 
-
-		</form> 
+		
 
 		
 		
@@ -190,16 +184,17 @@
 			<input type="text" class="username" placeholder="Username" name="username"/><br>
             <input type="password" class="password" placeholder="Password" name="password"/>
 			<input type="hidden" name="login"/>
+            <input type="submit" class="login" name="Login" > 
             
 		</form>
 		<br/>
 		<br/>
 	<form action="index.php" method="post">
-			Create New Account <br/>
+		<!--	Create New Account <br/>
 			Username: <input type="text" name="username"/><br>
 			Password: <input type="password" name="password"/>
 			<input type="hidden" name="CreateAccount"/>
-			<input type="submit"/> 
+			<input type="submit"/> --> 
 		</form> 
 			<br/>
 		<?php }
