@@ -80,7 +80,7 @@
 	</head>
 	
 	<body>
-        <div id="topbar" width="100%";> </div>
+        <div id="topbar" width="100%"; > </div>
         
         <div id="logo";>  </div>
         

@@ -10,6 +10,8 @@ html{
     
     border-color:#fff;
     background-color: transparent; 
+    border-left-color:#fff;
+    border-top-color:#fff;
     
     border-top-left-radius: 10px 10px;
     border-top-right-radius: 10px 10px;
@@ -20,12 +22,13 @@ html{
     width: 15%;
     margin: 6px;
     
+    position:absolute;
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin: auto;
     position:relative;
-    top:-60%;
+    top:70%;
     
     
     color:#fff; 
@@ -36,6 +39,8 @@ html{
 
 #topbar {
     
+    position:absolute;
+    z-index:1;
     float:left;
     background-color:#B0B0B0; 
     height: 5%;
@@ -62,6 +67,8 @@ html{
 
 #logo {
     
+    position:absolute;
+    z-index: 9999;
     
     height: 30px;
     width: 30px;
@@ -77,7 +84,8 @@ html{
     
     margin: auto;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    left:50%;
+    top:50%;
     
     
     
