@@ -192,6 +192,8 @@
 		{?>
 		<form action="index.php" method="post">
             
+            <!-- Login code --> 
+            
 			<input type="text" class="username" placeholder="Username" name="username"/><br>
             <input type="password" class="password" placeholder="Password" name="password"/>
 			<input type="hidden" name="login"/>
@@ -230,8 +232,8 @@
 		<br/>
 		<br/>
 		<form action="find.php" method="post">
-		Search: <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
-			<input id="yourSearch" type="text"  placeholder="My Location..." name="search2"/><br/>
+		 <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
+			<input id="yourSearch" type="text"  placeholder="My Location..." name="search2"/>
 			<input type="text" name="search"  placeholder="Their Location..." class="inputtwo"/>
 			<input type="submit" class="submitbutton" value="Search"/>
 			<input id="yourLat" type="hidden" name="lat"/>
