@@ -36,7 +36,7 @@ input:focus, textarea:focus {
     
     color:#fff; 
     font-size: 28px;
-    text-indent: 1%;
+    text-indent: 2%;
     
     
 }
@@ -68,7 +68,7 @@ input:focus, textarea:focus {
     
     color:#fff; 
     font-size: 28px;
-    text-indent: 1%;
+    text-indent: 2%;
     
     
 } 
@@ -87,7 +87,7 @@ input:focus, textarea:focus {
     border:none;
     margin:none;
     
-    top:-10%;
+    top:-3%;
     
 } 
 
