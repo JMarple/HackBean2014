@@ -12,6 +12,7 @@
       src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true">
     </script>
     <script type="text/javascript">
+        
       function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng(21.854, 4.987),
@@ -24,7 +25,7 @@
  
     // info window test      
         
-    var contentString = '<div id="content">'+
+  /*  var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
       '<h1 id="firstHeading" class="firstHeading"> Test Header</h1>'+
@@ -50,7 +51,7 @@
       
       infowindow.open(map,marker);
       
-      });
+      }); */ 
 
 
           
