@@ -1,17 +1,7 @@
 <html> 
 
 
-<head> 
-    
-    
-</head>
-    
-    
-<body> 
-
-    <p> test </p>
-    
-</body>
+test
     
     
 </html>
