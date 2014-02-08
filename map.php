@@ -50,7 +50,7 @@
     infowindow.open(map,marker);
       
   });
-}
+
 
           
           // Marker 
