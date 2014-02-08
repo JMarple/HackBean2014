@@ -114,7 +114,7 @@
 			    
 			  }
 			}
-google.maps.event.addDomListener(window, 'load', initialize);
+			google.maps.event.addDomListener(window, 'load', initialize);
 		</script>
 	</head>
 	
@@ -138,7 +138,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			<br/>
 		<br/>
 		<form action="find.php" method="post">
-		Search:<br/>
+		Search: <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
 			<input id="yourSearch" type="text" name="search2"/><br/>
 			<input type="text" name="search"/>
 			<input type="submit"/>

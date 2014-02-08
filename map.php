@@ -73,23 +73,32 @@
 	function initialize() {
 	    
 	  var mapOptions = {
-	    zoom: 13,
+	    zoom: 10,
 	    center: new google.maps.LatLng(place[0]['latitude'], place[0]['longitude'])
 	  };
 	    
 	  map = new google.maps.Map(document.getElementById('map-canvas'),
 	      mapOptions);
-	
-	
-	  
+
+	  //Info window variable
+	  var infowindow =  new google.maps.InfoWindow({
+           content: ""
+      });
+
+      //Loop through all the markers
 	  for(var i = 0; i < place.length; i++)
 	  {
-	
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(place[i]['latitude'], place[i]['longitude']),
 			map: map,
 			title: place[i]['name']	
 		});
+
+		$content = "<div style='font-size: 18px'>" + place[i]['name'] + "</div>" + 
+		"<img src='http://maps.googleapis.com/maps/api/streetview?size=250x250&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" 
+			;
+		//Bind Info window and marker
+		bindInfoWindow(marker, map, infowindow, $content);
 	  }
 	  
 	  drawYou();
@@ -98,6 +107,16 @@
 	
 	google.maps.event.addDomListener(window, 'load', initialize);
 
+	//Closer loop fix
+	function bindInfoWindow(marker, map, infowindow, strDescription) {
+	    google.maps.event.addListener(marker, 'click', function() {
+	        infowindow.setContent(strDescription);
+	        infowindow.open(map, marker);
+	    });
+	}
+
+
+	
 		function drawYou()
 		{
 		  var pinColor = "7777FF";
@@ -110,14 +129,14 @@
 			  position: new google.maps.LatLng(<?php echo $lat1?>,  <?php echo $long1?>),
 			  map: map,
 			  icon: pinImage,
-			  title: "You"
+			  title: "Person 1"
 		  });
 		  
 		  new google.maps.Marker({
 			  position: new google.maps.LatLng(<?php echo $lat2?>,  <?php echo $long2?>),
 			  map: map,
 			  icon: pinImage,
-			  title: "You"
+			  title: "Person 2"
 		  });
 
 		  new google.maps.Circle({
