@@ -178,10 +178,14 @@
 		</form> -->
 
 		
-		
+		<form action="find.php" method="post">
         
             
 		
+			<input type="text" class="inputone" placeholder="My Location..." name="search"/>
+			<input type="text" class="inputtwo" placeholder="Their Location..." name="searchbox"/>
+            
+            <input type="submit" class="submitbutton" value="Search">
 			
             
         
@@ -206,7 +210,7 @@
 			Password: <input type="password" name="password"/>
 			<input type="hidden" name="CreateAccount"/>
 			<input type="submit"/> 
-		</form> -->
+		</form> --> 
 			<br/>
 		<?php }
 		else 
@@ -232,8 +236,8 @@
 		<br/>
 		<form action="find.php" method="post">
 		Search: <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
-			<input id="inputone" type="text" name="inputtwo"/><br/>
-			<input type="text" name="search"/>
+			<input id="yourSearch" type="text" name="search2"/><br/>
+			<input type="text" name="search" class="inputtwo"/>
 			<input type="submit"/>
 			<input id="yourLat" type="hidden" name="lat"/>
 			<input id="yourLong" type="hidden" name="long"/>
@@ -241,7 +245,7 @@
 				
 			</script>
 		</form>
-		
+		<br/><br/>
 
 	</body>
 </html>
