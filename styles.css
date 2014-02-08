@@ -22,7 +22,7 @@ html{
     width: 15%;
     margin: 6px;
     
-    position:absolute;
+    position:relative;
     left:40%;
     top:60%;
     
@@ -74,6 +74,8 @@ html{
 
 
 #hotspot {
+    
+   font-family:  "verdana", "Geneva", sans-serif;
     
     color:#fff;
     font-size: 40px;
