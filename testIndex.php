@@ -73,7 +73,8 @@
 
 <html>
 	<head>
-		<title>InBetween Home</title>
+		<title>HotSpot!</title>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
 	</head>
 	
 	<body>
@@ -97,8 +98,8 @@
 		<br/>
 		<form action="find.php" method="post">
 		Search:
-			<input type="text" name="search"/><br/>
-			<input type="text" name="dumbyBox"/>
+			<input type="text" class="input" name="search"/><br/>
+			<input type="text" class="input" name="dumbyBox"/>
 			<input type="submit"/>
 		</form>
 	</body>
