@@ -182,10 +182,6 @@
         
             
 		
-			<input type="text" class="inputone" placeholder="My Location..." name="search"/>
-			<input type="text" class="inputtwo" placeholder="Their Location..." name="searchbox"/>
-            
-            <input type="submit" class="submitbutton" value="Search">
 			
             
         
@@ -236,9 +232,9 @@
 		<br/>
 		<form action="find.php" method="post">
 		Search: <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
-			<input id="yourSearch" type="text" name="search2"/><br/>
+			<input id="yourSearch" type="text"  placeholder="My Location..." name="search2"/><br/>
 			<input type="text" name="search" class="inputtwo"/>
-			<input type="submit"/>
+			<input type="submit" class="submitbutton" value="Search"/>
 			<input id="yourLat" type="hidden" name="lat"/>
 			<input id="yourLong" type="hidden" name="long"/>
 			<script>
