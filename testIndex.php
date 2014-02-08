@@ -78,6 +78,8 @@
 	</head>
 	
 	<body>
+        <div id="topbar" width="100%" height="40px";> </div>
+        
 		<form action="index.php" method="post">
 			
 			<input type="text" class="login" name="username"/><br>
@@ -97,14 +99,14 @@
 			<br/>
 		<br/>
 		<form action="find.php" method="post">
-        <div id="search" width=400; height="400" ; > 
+        
             
 		
 			<input type="text" class="input" name="search"/><br/>
 			<input type="text" class="input" name="search2"/>
 			
             
-         </div>
+      
 		</form>
 	</body>
 </html>
