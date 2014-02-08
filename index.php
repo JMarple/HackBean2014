@@ -104,7 +104,7 @@
 			      	initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 			    	 initialLat = position.coords.latitude;
 					 initialLong = position.coords.longitude;
-					 document.getElementById("yourSearch").value = "Geolocation Found";
+					 document.getElementById("yourSearch").value = "Current Location";
 					 document.getElementById("yourLat").value = initialLat;
 					 document.getElementById("yourLat2").value = initialLat;
 					 document.getElementById("yourLong").value = initialLong;
@@ -178,10 +178,9 @@
 		</form> -->
 
 		
-		<form action="find.php" method="post">
+		
         
             
-		
 			
             
         
@@ -233,7 +232,7 @@
 		<form action="find.php" method="post">
 		Search: <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
 			<input id="yourSearch" type="text"  placeholder="My Location..." name="search2"/><br/>
-			<input type="text" name="search" class="inputtwo"/>
+			<input type="text" name="search"  placeholder="Their Location..." class="inputtwo"/>
 			<input type="submit" class="submitbutton" value="Search"/>
 			<input id="yourLat" type="hidden" name="lat"/>
 			<input id="yourLong" type="hidden" name="long"/>
