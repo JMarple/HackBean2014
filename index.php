@@ -136,6 +136,7 @@
 	</head>
 	
     
+    
 	<body>
         
         <div id="topbar" width="100%"; > </div>
@@ -160,15 +161,7 @@
         <p> HotSpot: Bringing People Together </p>
         </div> -->
         
-		<form action="index.php" method="post">
-			
-			<input type="text" class="username" placeholder="Username" name="username"/><br>
-            <input type="password" class="password" placeholder="Password" name="password"/>
-			<input type="hidden" name="login"/>
-			
-		</form>
-		<br/>
-		<br/>
+
 		<!-- <form action="index.php" method="post">
             
             <input type="text" class="username" name="username" /><br>
