@@ -25,7 +25,8 @@
 			//If password matches then go for it
 			if(strcmp($row['password'], crypt($password, $row['password'])) == 0)
 			{
-				echo "Yes";
+				$_SESSION['username'] = $row['username'];
+				$_SESSION['loggedin'] = true;
 			}
 			else
 			{
@@ -57,6 +58,9 @@
 					$password = crypt($password);
 					mysql_query("INSERT INTO `heroku_807bde1acfd096e`.`hackbean` (`username`, `password`) VALUES ('$user', '$password')")
 						or die(mysql_error());
+						
+					$_SESSION['username'] = $row['username'];
+					$_SESSION['loggedin'] = true;
 				}
 				else
 				{
@@ -119,6 +123,8 @@
 	</head>
 	
 	<body>
+		<?php if(!isset($_SESSION['loggedin']))
+		{?>
 		<form action="index.php" method="post">
 			Log in <br/>
 			Username: <input type="text" name="username"/><br>
@@ -136,6 +142,11 @@
 			<input type="submit"/>
 		</form>
 			<br/>
+		<?php }
+		else 
+		{ ?>
+		Signed in as : <?php echo $_SESSION['username'];
+		} ?>
 		<br/>
 		<form action="find.php" method="post">
 		Search: <?php if(isset($_GET['err'])) echo "Error in search"?><br/>

@@ -100,9 +100,10 @@
 
 		$content = "<div style='font-weight:400; font-size: 14px'>" + place[i]['name'] + "</div>" +
 		"<div style='font-size: 14px'>" + place[i]['street'] + ", " + place[i]['citystate'] + "</div><br/>" +
-		 "<a href='" + place[i]['weburl'] + "'>"+place[i]['name']+"'s TripAdvisor Review</a><br/><br/>" + 
+		 "<a href='" + place[i]['weburl'] + "'>"+place[i]['name']+"'s TripAdvisor Review</a><br/><i>"+	 place[i]['desc']+"</i><br/>" + 
+	
 		"<img src='http://maps.googleapis.com/maps/api/streetview?size=250x100&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" 
-			+ place[i]['desc'];
+			;
 		//Bind Info window and marker
 		bindInfoWindow(marker, map, infowindow, $content);
 	  }
