@@ -14,7 +14,7 @@
 		$lat = "-72.0";
 	
 	//Get Request
-	$request = Requests::get('http://api.tripadvisor.com/api/partner/1.0/map/'.$lat.','.$long.'?key=92C34F58BB4F4E03894F5D171B79857E&limit=50');
+	$request = Requests::get('http://api.tripadvisor.com/api/partner/1.0/map/'.$lat.','.$long.'?distance=25&key=92C34F58BB4F4E03894F5D171B79857E&limit=50');
 	
 	//Convert to array
 	$obj = json_decode($request->body, true);
@@ -76,7 +76,17 @@ function initialize() {
     
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-  
+
+  new google.maps.Circle({
+	strokeColor: '#FF0000',
+	strokeOpacity: 0.8,
+	strokeWeight: 2,
+	fillColor: '#FF0000',
+	fillOpacity: 0.35,
+	map:map,
+	center: new google.maps.LatLng(<?php echo $lat?>, <?php echo $long?>),
+	radius: 10
+  });
   for(var i = 0; i < place.length; i++)
   {
 
