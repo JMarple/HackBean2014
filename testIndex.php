@@ -97,11 +97,11 @@
 			<br/>
 		<br/>
 		<form action="find.php" method="post">
-        <div id="search" width=400; height="400" float="center"  ; > 
+        <div id="search" width=400; height="400" ; > 
             
 		
 			<input type="text" class="input" name="search"/><br/>
-			<input type="text" class="input" name="dumbyBox"/>
+			<input type="text" class="input" name="search2"/>
 			
             
          </div>
