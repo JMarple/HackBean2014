@@ -15,30 +15,30 @@ input:focus, textarea:focus {
 
 .inputone {
     
-    border-color:#fff;
-    background-color: transparent; 
-    border-left-color:#fff;
-    border-top-color:#fff;
+    border: 2px solid;
     
-    border-top-left-radius: 10px 10px;
-    border-top-right-radius: 10px 10px;
-    border-bottom-left-radius: 10px 10px;
-    border-bottom-right-radius: 10px 10px;
+    border-color:#000;
+    background-color: 6E6E6E; 
+    background: rgba(50, 50, 50, .7);
+    border-bottom-color:transparent;
     
-    height: 5%;
-    width: 20%;
+    height: 10%;
+    width: 30%;
     margin: 6px;
     
     position:absolute;
-    left:40%;
+    left:37%;
     top:45%;
     
     
     
     color:#fff; 
-    font-size: 28px;
-    text-indent: 2%;
+    font-size: 1.6vw;
+    text-indent: 4%;
     
+    font-family:  "verdana", sans-serif;
+    
+   
     
 }
 
@@ -47,29 +47,30 @@ input:focus, textarea:focus {
 
 .inputtwo {
     
-    border-color:#fff;
-    background-color: transparent; 
-    border-left-color:#fff;
-    border-top-color:#fff;
+    border: 2px solid;
+    border-color:#000;
+    background-color: 6E6E6E; 
+    background: rgba(50, 50, 50, .7);
     
-    border-top-left-radius: 10px 10px;
-    border-top-right-radius: 10px 10px;
-    border-bottom-left-radius: 10px 10px;
-    border-bottom-right-radius: 10px 10px;
+  
     
-    height: 5%;
-    width: 20%;
+    height: 10%;
+    width: 30%;
     margin: 6px;
     
     position:absolute;
-    left:40%;
-    top:54%;
+    left:37%;
+    top:55%;
     
     
     
     color:#fff; 
-    font-size: 28px;
-    text-indent: 2%;
+    font-size: 1.6vw;
+    text-indent: 4%;
+    
+    font-family:  "verdana", sans-serif;
+    
+     
     
     
 } 
@@ -83,10 +84,10 @@ input:focus, textarea:focus {
     position:absolute;
     z-index:1;
     float:left;
-    background-color:#B0B0B0; 
-    height: 6%;
+    background-color:#6E6E6E; 
+    height: 70px;
     width: 120%;
-    border-color:#B0B0B0;
+    border-color:#6E6E6E;
     border:none;
     margin:none;
     
@@ -99,9 +100,23 @@ input:focus, textarea:focus {
 
 .username {
     
-    background-color:transparent;
+    font-size: 0.7vw;
+    position: absolute; 
+    float:right;
+    background-color:#fff;
     border-color:transparent;
+    z-index:50;
+    right:17%;
+    height:30px;
+    width:250px;
     
+    text-indent: 2%;
+    margin-top:-19px;
+    
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
   
 /* login password field */
     
@@ -110,8 +125,23 @@ input:focus, textarea:focus {
 
 .password {
     
-    background-color:transparent;
+     font-size: 0.7vw;
+    text-indent: 2%;
+    position: absolute; 
+    float:right;
+    z-index:50;
+    background-color:#fff;
     border-color: transparent; 
+    height:30px;
+    width:250px;
+    right:3%;
+    margin-top:-37px;
+    
+    
+     border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
 } 
 
 .logo {
@@ -119,8 +149,8 @@ input:focus, textarea:focus {
     position:absolute;
     z-index: 2;
     
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
     
     
 } 
@@ -143,39 +173,160 @@ input:focus, textarea:focus {
 
 
 #login {
+
+ position:absolute;
+ display:block;
+ left:94%;
+ top:-3%;
+ font-size:36px; 
+ color:#fff;
+ z-index:30;
     
- float:right;
- margin-top:5px; 
- font-size:20px; 
+ 
+}
+
+#login:hover {
+    
+ position:absolute;
+ display:block;
+ left:94%;
+ top:-3%;
+ font-size:36px; 
+ color:#D4D4D4;
+ z-index:30;
+    
 }
 
 
 #breadcrumb {
     
+   position:relative;
+   background-color:#6E6E6E;
+    
+    z-index:40;
     float:right;
     
-    height: 6%;
-    width: 15%;
+    height: 73px;
+    width: 12%; 
+    top:-2%;
+    right:-2%;
     
     
 }
 
-#breadcrumb a.hover {
+#breadcrumb:hover {
     
+    
+    position:relative;
     background-color:#BBBBBB;
-    
-}
+    z-index:40; 
 
+}
 
 #box {
     
-    height:30%;
-    width:30%;
+  /*  height:100%;
+    width:100%;
     
-    background-color:#fff;
-    opacity:0.6;
+    background-color:#BBBBBB;
+    opacity:0.7;
     position:absolute;
-    left:30%;
-    top:40%;
+    left:0%;
+    top:3%;
+    */
+    
+    
 }
 
+.submitbutton {
+    
+      content:'search';
+      font-size: 2.0vw;
+      cursor:pointer;
+      color:#fff;
+      height: 60px;
+      width: 30%;
+      font-family:  "verdana", sans-serif;
+    
+      position:absolute;
+      left:37.5%;
+      top:70%;
+    
+       margin: 0;
+       padding: 0;
+       background: #00A5D9 url(image) 0 0 no-repeat; 
+       border: none;
+    
+}
+
+.submitbutton:hover {
+    
+    background: #0286B0 url(image) 0 0 no-repeat;
+}
+
+
+.infologo {
+    
+
+    width: 25px;
+    height:25px;
+    margin-top:-12.5px;
+   
+    
+    
+    
+} 
+
+
+
+
+span{
+    width:380px;
+    background: rgba(50, 50, 50, .7);
+    color: #fff;
+    height: 25px;
+    letter-spacing: 1px;
+    position: relative;
+    text-align: left;
+    top: 20px;
+    right:360px;
+    display:none;
+    padding-top:20px;
+    font-size: 0.9vw;
+    text-indent:1.55%;
+    border-color:#000;
+    border: 1px solid;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    
+    
+}
+span:after{
+    content:'Don\'t have an account? Click on the button!';
+    position:absolute;
+    bottom:5px;
+    width:360px;
+    height:30px;
+    
+ 
+   
+   
+    
+
+}
+p{
+    position:absolute; 
+    width: 25px;
+    height:25px;
+    right:1%;
+    z-index:100;
+    top:1.55%;
+    cursor:pointer;
+ 
+}
+
+p:hover span{
+    display:block;
+}
