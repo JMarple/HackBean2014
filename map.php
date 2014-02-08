@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <title>HotSpot!</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
     <style type="text/css">
       html { height: 100% }
@@ -29,36 +30,30 @@
       '<h1 id="firstHeading" class="firstHeading"> Test Header</h1>'+
       '<div id="bodyContent">'+
       '<p>This is a test info Window</p>'+
-      '</div>'+
       '</div>';
+          
           
       var infowindow = new google.maps.InfoWindow({
           
       content: contentString
           
-  });
+      });
           
       var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
       title: ' Justin is Sexy '
-  });
+      });
           
           
-  google.maps.event.addListener(marker, 'click', function() {
+      google.maps.event.addListener(marker, 'click', function() {
       
-    infowindow.open(map,marker);
+      infowindow.open(map,marker);
       
-  });
+      });
 
 
           
-          // Marker 
-          
-          var marker = new google.maps.Marker({
-              position: myLatlng,
-              map: map,
-              title: "Place One"
               
       });
       google.maps.event.addDomListener(window, 'load', initialize);
