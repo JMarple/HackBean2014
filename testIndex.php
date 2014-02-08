@@ -9,7 +9,7 @@
 	<body>
         <div id="topbar" width="100%"; > </div>
         
-        <div id="logo";>  </div>
+        <img src="hotspot.png" class="logo" alt="HotSpot"> 
         
         <div id="Hotspot";> 
         <p> HotSpot: Bringing People Together </p>

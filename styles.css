@@ -113,14 +113,14 @@ input:focus, textarea:focus {
     border-color: transparent; 
 } 
 
-#logo {
+.logo {
     
     position:absolute;
     z-index: 2;
     
     height: 30px;
     width: 30px;
-    background-image:url('hotspot.png');
+    
     
 } 
 
