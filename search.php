@@ -11,17 +11,17 @@
     
         <body> 
         
-        
-            <?php echo "
-            <form> 
-                    <th><input type="text"> 
-            </form> 
+        <form action="welcome.php" method="post">
+        Name: <input type="text" name="Where you are"><br>
+        <input type="submit">
+        </form>
             
+        <br>    
             
-            
-            "; ?> 
-            <?php echo "Catcatcat"; ?>
-            
+        <form action="welcome.php" method="post">
+        Name: <input type="text" name="Where they are"><br>
+        <input type="submit">
+        </form>   
         
         
         </body>
