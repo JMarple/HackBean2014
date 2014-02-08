@@ -8,7 +8,7 @@
       #map-canvas { height: 100% }
     </style>
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key={AIzaSyDbrJxlT8YuN4Rk_TCpxVsYvBttVbjHnRc}&sensor=true">
+      src="https://maps.googleapis.com/maps/api/js?key={AIzaSyCDIt-kQZcvcQUezQ4lF8v8iTHYcNKAZ20}&sensor=true">
     </script>
     <script type="text/javascript">
       function initialize() {
