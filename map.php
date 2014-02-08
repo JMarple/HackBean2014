@@ -3,18 +3,23 @@
 	require_once "Requests/Requests/library/Requests.php";
 	Requests::register_autoloader();
 	
-	if(isset($_POST['long']))
-		$long = $_POST['long'];	
-	else	
-		$long = "42.34";	
+	$lat1 = $_POST['lat1'];
+	$long1 = $_POST['long1'];
+	$lat2 = $_POST['lat2'];
+	$long2 = $_POST['long2'];
 	
-	if(isset($_POST['lat']))
-		$lat = $_POST['lat'];	
+	if(isset($_POST['midLong']))
+		$midLong = $_POST['midLong'];	
+	else	
+		$midLong = "42.34";	
+	
+	if(isset($_POST['midLat']))
+		$midLat = $_POST['midLat'];	
 	else
-		$lat = "-72.0";
+		$midLat = "-72.0";
 	
 	//Get Request
-	$request = Requests::get('http://api.tripadvisor.com/api/partner/1.0/map/'.$lat.','.$long.'?distance=25&key=92C34F58BB4F4E03894F5D171B79857E&limit=50');
+	$request = Requests::get('http://api.tripadvisor.com/api/partner/1.0/map/'.$midLat.','.$midLong.'?distance=25&key=92C34F58BB4F4E03894F5D171B79857E&limit=50');
 	
 	//Convert to array
 	$obj = json_decode($request->body, true);
@@ -63,45 +68,80 @@
       
     <script>
         
-var map;
-        
-function initialize() {
-    
-  var mapOptions = {
-      
-    zoom: 8,
-    center: new google.maps.LatLng(place[0]['latitude'], place[0]['longitude'])
-      
-  };
-    
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+	var map;
+	        
+	function initialize() {
+	    
+	  var mapOptions = {
+	    zoom: 13,
+	    center: new google.maps.LatLng(place[0]['latitude'], place[0]['longitude'])
+	  };
+	    
+	  map = new google.maps.Map(document.getElementById('map-canvas'),
+	      mapOptions);
+	
+	
+	  
+	  for(var i = 0; i < place.length; i++)
+	  {
+	
+		var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(place[i]['latitude'], place[i]['longitude']),
+			map: map,
+			title: place[i]['name']	
+		});
+	  }
+	  
+	  drawYou();
+	  
+	}
+	
+	google.maps.event.addDomListener(window, 'load', initialize);
 
-  new google.maps.Circle({
-	strokeColor: '#FF0000',
-	strokeOpacity: 0.8,
-	strokeWeight: 2,
-	fillColor: '#FF0000',
-	fillOpacity: 0.35,
-	map:map,
-	center: new google.maps.LatLng(<?php echo $lat?>, <?php echo $long?>),
-	radius: 10
-  });
-  for(var i = 0; i < place.length; i++)
-  {
+		function drawYou()
+		{
+		  var pinColor = "7777FF";
+		  var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+			        new google.maps.Size(21, 34),
+			        new google.maps.Point(0,0),
+			        new google.maps.Point(10, 34));
+	
+		  new google.maps.Marker({
+			  position: new google.maps.LatLng(<?php echo $lat1?>,  <?php echo $long1?>),
+			  map: map,
+			  icon: pinImage,
+			  title: "You"
+		  });
+		  
+		  new google.maps.Marker({
+			  position: new google.maps.LatLng(<?php echo $lat2?>,  <?php echo $long2?>),
+			  map: map,
+			  icon: pinImage,
+			  title: "You"
+		  });
 
-	var marker = new google.maps.Marker({
-		position: new google.maps.LatLng(place[i]['latitude'], place[i]['longitude']),
-		map: map,
-		title: place[i]['name']	
-	});
-  }
-  
-}
+		  new google.maps.Circle({
+				strokeColor: '#7777FF',
+				strokeOpacity: 0.6,
+				strokeWeight: 2,
+				fillColor: '#7777FF',
+				fillOpacity: 0.15,
+				map:map,
+				center: new google.maps.LatLng(<?php echo $lat1?>, <?php echo $long1?>),
+				radius: 500
+			  });	
 
-google.maps.event.addDomListener(window, 'load', initialize);
-
-
+		  new google.maps.Circle({
+				strokeColor: '#7777FF',
+				strokeOpacity: 0.6,
+				strokeWeight: 2,
+				fillColor: '#7777FF',
+				fillOpacity: 0.15,
+				map:map,
+				center: new google.maps.LatLng(<?php echo $lat2?>, <?php echo $long2?>),
+				radius: 500
+			  });	  
+		}
 
     </script>
   </head>

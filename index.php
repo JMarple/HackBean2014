@@ -74,6 +74,48 @@
 <html>
 	<head>
 		<title>InBetween Home</title>
+   		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+		<script>
+			var initialLong = 0;
+			var initialLat = 0;
+
+			function initialize() {
+
+			  // Try W3C Geolocation (Preferred)
+			  if(navigator.geolocation) {
+			    browserSupportFlag = true;
+			    navigator.geolocation.getCurrentPosition(function(position) 
+					{
+			      	initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+			    	 initialLat = position.coords.latitude;
+					 initialLong = position.coords.longitude;
+					 document.getElementById("yourSearch").value = "Geolocation Found";
+					 document.getElementById("yourLat").value = initialLat;
+					 document.getElementById("yourLong").value = initialLong;
+					
+			    }, function() {
+			      handleNoGeolocation(browserSupportFlag);
+			    });
+			  }
+			  // Browser doesn't support Geolocation
+			  else {
+			    browserSupportFlag = false;
+			    handleNoGeolocation(browserSupportFlag);
+			  }
+			
+			  function handleNoGeolocation(errorFlag) {
+			    if (errorFlag == true) {
+			      alert("Geolocation service failed.");
+			      initialLocation = newyork;
+			    } else {
+			      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+			      initialLocation = siberia;
+			    }
+			    
+			  }
+			}
+google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
 	</head>
 	
 	<body>
@@ -96,10 +138,15 @@
 			<br/>
 		<br/>
 		<form action="find.php" method="post">
-		Search:
-			<input type="text" name="search"/><br/>
-			<input type="text" name="dumbyBox"/>
+		Search:<br/>
+			<input id="yourSearch" type="text" name="search2"/><br/>
+			<input type="text" name="search"/>
 			<input type="submit"/>
+			<input id="yourLat" type="hidden" name="lat"/>
+			<input id="yourLong" type="hidden" name="long"/>
+			<script>
+				
+			</script>
 		</form>
 	</body>
 </html>

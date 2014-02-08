@@ -12,9 +12,15 @@
 		
 		//Convert to array
 		$obj = json_decode($request->body, true);
-		var_dump($obj);
+		//var_dump($obj);
 		$longitude = $obj['geos'][0]['longitude'];
 		$latitude = $obj['geos'][0]['latitude'];
+		
+		$yourLat = $_POST['lat'];
+		$yourLong = $_POST['long'];
+		
+		$midLong = ($longitude + $yourLong)/2;
+		$midLat = ($latitude + $yourLat)/2;
 		//$data;
 		
 		//$i = 0;
@@ -35,8 +41,12 @@
 ?>
 
 <form action="map.php" method="post" name="frm">
-	<input type='hidden' name='long' value="<?php echo $longitude?>"/>
-	<input type='hidden' name='lat' value="<?php echo $latitude ?>"/>
+	<input type='hidden' name='midLong' value="<?php echo $midLong; ?>"/>
+	<input type='hidden' name='midLat' value="<?php echo $midLat; ?>"/>
+	<input type='hidden' name='long1' value="<?php echo $yourLong; ?>"/>
+	<input type='hidden' name='lat1' value="<?php echo $yourLat; ?>"/>
+	<input type='hidden' name='long2' value="<?php echo $longitude; ?>"/>
+	<input type='hidden' name='lat2' value="<?php echo $latitude; ?>"/>
 </form>
 
 <script language="JavaScript">
