@@ -1,7 +1,7 @@
-<html> 
+<?php 
 
 
-test
-    
-    
-</html>
+<p> Test </p> 
+
+
+?> 
