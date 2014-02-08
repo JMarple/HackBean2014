@@ -9,6 +9,22 @@ html{
 .input {
     
     border-color:#fff;
+    background-color: transparent; 
+    border: medium none;
+    
+    border-top-left-radius: 10px 5px;
+    border-top-right-radius: 10px 5px;
+    border-bottom-left-radius: 10px 5px;
+    border-bottom-right-radius: 10px 5px;
+    
+    
     
     
 }
+
+#search {
+    
+    position: relative;
+    top: -200px; 
+    
+} 
