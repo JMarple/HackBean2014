@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
       #map-canvas { height: 100% }
     </style>
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key={AIzaSyCDIt-kQZcvcQUezQ4lF8v8iTHYcNKAZ20}&sensor=true">
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true">
     </script>
     <script type="text/javascript">
       function initialize() {
