@@ -274,7 +274,7 @@
     
     	.selectionBar
     	{
-    		width: 250px;
+    		width: 200px;
     		height: 100%;
     		position: absolute; 
     		right: 0px;
@@ -293,7 +293,7 @@
     		color: #CCC;
     		font-family: Arial;
     		margin: 10px;
-    		margin-left: 60px;
+    		margin-left: 10px;
     		box-shadow: 0px 0px 2px #000;
     	}
     	.selectionObject:hover
@@ -349,9 +349,23 @@
 			<input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
 			<input type="hidden" name="addToGroupSearch"/>
 		</form>
-		<form action="group.php" method="post" style="display:inline;margin: 0px; padding: 0px;">
+		
+		<?php 
+		$flag = true;
+		foreach($data as $value)
+		{
+			
+			if($value['userid'] == $_SESSION['userid'])
+			{
+				$flag = false;
+			}
+		}
+		if($flag)
+		{
+		?><form action="group.php" method="post" style="display:inline;margin: 0px; padding: 0px;">
 			<input class="submitButton" type="submit" style="margin-left: 90px; width: 200px;" value="Add Your Location"/>
 		</form>
+		<?php }?>
 		<div id="dropdownArrow" class="dropdownArrow">
 			Places &#x25BC;
 		</div>
@@ -367,10 +381,10 @@
 				 	"<div style='font-weight:400; font-size: 14px'>" + 
 				 		place[i]['name'] + 
 					 "</div>"+
-					 "<img style='margin:5px' src='http://maps.googleapis.com/maps/api/streetview?size=130x80&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" + 
-
+					 "<img style='margin:5px' src='http://maps.googleapis.com/maps/api/streetview?size=130x80&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" +
 				"</div>";
 			 document.getElementById('selectionBar').innerHTML = document.getElementById('selectionBar').innerHTML + content;
+			
 		 }
 
 		</script>

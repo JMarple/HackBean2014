@@ -60,7 +60,7 @@
 					mysql_query("INSERT INTO `heroku_807bde1acfd096e`.`hackbean` (`username`, `password`) VALUES ('$user', '$password')")
 						or die(mysql_error());
 						
-					$_SESSION['userid'] = $row['ID'];
+					$_SESSION['userid'] = mysql_insert_id();
 					$_SESSION['username'] = $user;
 					$_SESSION['loggedin'] = true;
 				}
