@@ -77,6 +77,8 @@ input:focus, textarea:focus {
 
 #topbar {
     
+    float:left;
+    
     position:absolute;
     z-index:9999;
     float:left;
@@ -87,7 +89,7 @@ input:focus, textarea:focus {
     border:none;
     margin:none;
     
-    top:-3%;
+    top:-1%;
     
 } 
 
@@ -132,7 +134,7 @@ input:focus, textarea:focus {
     
 
     position: absolute;
-    left:35%;
+    left:33%;
     top:30%;
     
     
