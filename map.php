@@ -1,29 +1,61 @@
 <?php 
 
+	$userid = mysql_real_escape_string($_GET['id']);
+	
+	$host = "us-cdbr-east-05.cleardb.net";
+	$user = "b85ad415edfa4d";
+	$pass = "df62fd56";
+	
+	$db = "hackbean";
+	
+	mysql_connect($host, $user, $pass);
+	mysql_select_db($db);
+	$data;
+	
+	if($result = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`group` WHERE id=$userid"))
+	{		
+		if(mysql_num_rows($result) > 0)
+		{
+			$row = mysql_fetch_assoc($result);
+			
+			//Decode Group Data!
+			$data = json_decode($row['users'], true);			
+		}
+		else
+		{
+			header("Location: index.php");
+		}
+	}
+	else
+	{
+		header("Location: index.php");
+	}
+	
+	
+	
 	require_once "Requests/Requests/library/Requests.php";
 	Requests::register_autoloader();
 	
-	$lat1 = $_POST['lat1'];
-	$long1 = $_POST['long1'];
-	$lat2 = $_POST['lat2'];
-	$long2 = $_POST['long2'];
+	$i = 0;
+	$long = 0;
+	$lat = 0;
 	
-	if(isset($_POST['midLong']))
-		$midLong = $_POST['midLong'];	
-	else	
-		$midLong = "42.34";	
-	
-	if(isset($_POST['midLat']))
-		$midLat = $_POST['midLat'];	
-	else
-		$midLat = "-72.0";
+	//Calculate average point
+	foreach($data as $value)
+	{
+		$long += $value['long'];
+		$lat += $value['lat'];
+		$i++;
+	}
+	$long = $long / $i;
+	$lat = $lat / $i;
 	
 	//Get Request
-	$request = Requests::get('http://api.tripadvisor.com/api/partner/1.0/map/'.$midLat.','.$midLong.'?distance=25&key=92C34F58BB4F4E03894F5D171B79857E&limit=50');
+	$request = Requests::get('http://api.tripadvisor.com/api/partner/1.0/map/'.$lat.','.$long.'?distance=25&key=92C34F58BB4F4E03894F5D171B79857E&limit=50');
 	
 	//Convert to array
 	$obj = json_decode($request->body, true);
-	//var_dump($obj['data'][0]);
+
 	$data;
 	
 	$i = 0;
@@ -53,7 +85,7 @@
 			echo "var place = " . $js_array . ";\n";
 		?>
     </script>
-    
+    <script src="jquery.js"></script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
       
@@ -123,55 +155,105 @@
 	}
 
 
-	
-		function drawYou()
-		{
-		  var pinColor = "7777FF";
-		  var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-			        new google.maps.Size(21, 34),
-			        new google.maps.Point(0,0),
-			        new google.maps.Point(10, 34));
-	
-		  new google.maps.Marker({
-			  position: new google.maps.LatLng(<?php echo $lat1?>,  <?php echo $long1?>),
+
+	function drawPerson(latitude, longitude)
+	{
+		 var pinColor = "7777FF";
+		 var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+			       new google.maps.Size(21, 34),
+			       new google.maps.Point(0,0),
+			       new google.maps.Point(10, 34));
+	        
+		 new google.maps.Marker({
+			  position: new google.maps.LatLng(latitude,  longitude),
 			  map: map,
 			  icon: pinImage,
 			  title: "Person 1"
-		  });
-		  
-		  new google.maps.Marker({
-			  position: new google.maps.LatLng(<?php echo $lat2?>,  <?php echo $long2?>),
-			  map: map,
-			  icon: pinImage,
-			  title: "Person 2"
-		  });
-
-		  new google.maps.Circle({
+		 });
+		 new google.maps.Circle({
 				strokeColor: '#7777FF',
 				strokeOpacity: 0.6,
 				strokeWeight: 2,
 				fillColor: '#7777FF',
 				fillOpacity: 0.15,
 				map:map,
-				center: new google.maps.LatLng(<?php echo $lat1?>, <?php echo $long1?>),
-				radius: 500
-			  });	
+				center: new google.maps.LatLng(latitude, longitude),
+			radius: 500
+		 });			  
+	}
 
-		  new google.maps.Circle({
-				strokeColor: '#7777FF',
-				strokeOpacity: 0.6,
-				strokeWeight: 2,
-				fillColor: '#7777FF',
-				fillOpacity: 0.15,
-				map:map,
-				center: new google.maps.LatLng(<?php echo $lat2?>, <?php echo $long2?>),
-				radius: 500
-			  });	  
+	
+		function drawYou()
+		{
+		  <?php 
+		  //Display each person
+		  foreach($data as $value)
+		  {
+		  	if(isset($value['lat']))
+		  		echo "drawPerson(" . $value['lat'] . ", " . $value['long'] . ");";		 
+		  }
+		  ?>
 		}
 
     </script>
+    <style>
+    	.textboxs
+    	{
+    		width: 180px; 
+    		margin: 3px; 
+    		height: 30px; 
+    		border-radius: 10px; 
+    		background-color: #F0F0F0; 
+    		border:1px solid #DDD;
+    		outline-width: 0;
+    		padding-left: 10px;
+    	}
+    	.textboxs:focus
+    	{
+    		background-color:#FFF;
+    	}
+    	
+    	.logo
+    	{
+    		float: left; 
+    		width: 200px; 
+    		font-family: Arial; 
+    		font-size: 30px; 
+    		margin-top:2px;
+    	}
+    	.logo:hover
+    	{
+    		color: #FFF;
+    	}
+    	
+    	
+    	.navbar
+    	{
+    		width: 100%; 
+    		height: 40px; 
+    		background-color: #777;
+    		box-shadow: 0px 0px 3px #000;
+    		position: absolute; 
+    		top: 0px;
+    		left: 0px;
+    		z-index: 10
+    	}
+    
+    </style>
   </head>
-  <body>
+  <body style="overflow:hidden;">
+	<div class="navbar">
+		<form action="group.php" method="post">
+			<input class="textboxs" placeholder="Add New Location" type="textbox" name="search"/>
+			<input type="submit" />
+			<input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
+			<input type="hidden" name="addToGroupSearch"/>
+		</form>
+	</div>
     <div id="map-canvas"></div>
+    
+    	
+    
+   <!-- <img src="hotspot.png" style="opacity: 1; margin: 5px; position: absolute; bottom: 10px; left: 10px;" height="200px" width="200px"/>-->
   </body>
 </html>

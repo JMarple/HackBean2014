@@ -25,6 +25,7 @@
 			//If password matches then go for it
 			if(strcmp($row['password'], crypt($password, $row['password'])) == 0)
 			{
+				$_SESSION['userid'] = $row['ID'];
 				$_SESSION['username'] = $row['username'];
 				$_SESSION['loggedin'] = true;
 			}
@@ -59,6 +60,7 @@
 					mysql_query("INSERT INTO `heroku_807bde1acfd096e`.`hackbean` (`username`, `password`) VALUES ('$user', '$password')")
 						or die(mysql_error());
 						
+					$_SESSION['userid'] = $row['ID'];
 					$_SESSION['username'] = $row['username'];
 					$_SESSION['loggedin'] = true;
 				}
@@ -72,6 +74,11 @@
 				echo "Username already being used";
 			}
 		}
+	}
+	if(isset($_POST['SignOut']))
+	{
+		session_destroy();
+		header("Location: index.php");
 	}
 ?>
 
@@ -95,7 +102,9 @@
 					 initialLong = position.coords.longitude;
 					 document.getElementById("yourSearch").value = "Geolocation Found";
 					 document.getElementById("yourLat").value = initialLat;
+					 document.getElementById("yourLat2").value = initialLat;
 					 document.getElementById("yourLong").value = initialLong;
+					 document.getElementById("yourLong2").value = initialLong;
 					
 			    }, function() {
 			      handleNoGeolocation(browserSupportFlag);
@@ -145,8 +154,24 @@
 		<?php }
 		else 
 		{ ?>
-		Signed in as : <?php echo $_SESSION['username'];
+		Signed in as : <?php echo $_SESSION['username'];?>
+		<br/>
+		<form action="index.php" method="post">
+			<input type="submit" value="logout"/>
+			<input type="hidden" name="SignOut"/>
+		</form>
+		<br/><br/>
+		<form action="group.php" method="post">
+			New Group : <input type="submit" />
+			<input id="yourLat2" type="hidden" name="lat" value=""/>
+			<input id="yourLong2" type="hidden" name="long" value=""/>
+			<input type="hidden" name="newGroup"/>
+		</form>
+		<?php 
 		} ?>
+		<br/><br/>
+		
+		<br/>
 		<br/>
 		<form action="find.php" method="post">
 		Search: <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
@@ -159,5 +184,7 @@
 				
 			</script>
 		</form>
+		<br/><br/>
+
 	</body>
 </html>
