@@ -244,8 +244,7 @@
     	{
     		color: #FFF;
     	}
-    	
-    	
+    	    	
     	.navbar
     	{
     		width: 100%; 
@@ -273,6 +272,73 @@
     		background-color: #FFF;
     	}
     
+    	.selectionBar
+    	{
+    		width: 250px;
+    		height: 100%;
+    		position: absolute; 
+    		right: 0px;
+    		margin-top: 15px;
+    		background-color: #666;
+    		box-shadow: 0px 0px 3px #000;	
+    		z-index: 8;
+    		overflow-y: scroll;
+    		overflow-x: visable;
+    	}
+    	.selectionObject
+    	{
+    		width: 150px; height: 130px;
+    		border: 2px solid #777;
+    		padding: 5px;
+    		color: #CCC;
+    		font-family: Arial;
+    		margin: 10px;
+    		margin-left: 60px;
+    		box-shadow: 0px 0px 2px #000;
+    	}
+    	.selectionObject:hover
+    	{
+    		background-color: #777777;
+    		cursor: pointer;
+    	}
+    	.selectionRater
+    	{
+    		width: 40px; 
+    		right: 190px; 
+    		height: 120px;
+    		top: 25px;
+    		position: absolute;
+    		z-index: 10;
+    		text-align: center;
+    	}
+    	.dropdownArrow
+    	{
+    		width: 250px; 
+    		padding-top: 10px; 
+    		text-align: center; 
+    		float: right;
+    		color: #CCC;
+    		font-family:Arial;
+    		height: 40px;
+    	}
+    	.dropdownArrow:hover
+    	{
+    		background-color: #666666;
+    		cursor: pointer;
+    	}
+    	::-webkit-scrollbar {
+		    height: 12px;
+			width: 12px;
+			background: #000;
+		    }
+		::-webkit-scrollbar-thumb {
+		    background: #707070;
+		    -webkit-border-radius: 1ex;
+		    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+		}
+		::-webkit-scrollbar-corner {
+		    background: #000;
+		}
     </style>
   </head>
   <body>
@@ -286,8 +352,35 @@
 		<form action="group.php" method="post" style="display:inline;margin: 0px; padding: 0px;">
 			<input class="submitButton" type="submit" style="margin-left: 90px; width: 200px;" value="Add Your Location"/>
 		</form>
+		<div id="dropdownArrow" class="dropdownArrow">
+			Places &#x25BC;
+		</div>
 	</div>
-	<div 
+	<div class="selectionBar" id="selectionBar">
+		<script>
+		 for(var i = 0; i < place.length; i++)
+		 {
+			 var content = 
+				 "<div class='selectionObject'>" +
+				 	"<div class='selectionRater'>" +
+				 	"</div>" +
+				 	"<div style='font-weight:400; font-size: 14px'>" + 
+				 		place[i]['name'] + 
+					 "</div>"+
+					 "<img style='margin:5px' src='http://maps.googleapis.com/maps/api/streetview?size=130x80&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" + 
+
+				"</div>";
+			 document.getElementById('selectionBar').innerHTML = document.getElementById('selectionBar').innerHTML + content;
+		 }
+
+		</script>
+	</div>
+	<script>
+	$('#dropdownArrow').click(function()
+	{
+		$('#selectionBar').slideToggle();
+	});
+	</script>
     <div id="map-canvas"></div>
        
    <!-- <img src="hotspot.png" style="opacity: 1; margin: 5px; position: absolute; bottom: 10px; left: 10px;" height="200px" width="200px"/>-->
