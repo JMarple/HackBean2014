@@ -34,7 +34,22 @@ html{
     
   
     background-color:#B0B0B0; 
+    height: 40px;
     
     
+} 
+
+.username {
     
+    background-color:transparent;
+    border-color:transparent;
+    
+    
+}
+
+
+.password {
+    
+    background-color:transparent;
+    border-color: transparent; 
 } 

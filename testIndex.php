@@ -82,8 +82,8 @@
         
 		<form action="index.php" method="post">
 			
-			<input type="text" class="login" name="username"/><br>
-            <input type="password" class="login" name="password"/>
+			<input type="text" class="username" name="username"/><br>
+            <input type="password" class="password" name="password"/>
 			<input type="hidden" name="login"/>
 			
 		</form>
@@ -91,8 +91,8 @@
 		<br/>
 		<form action="index.php" method="post">
             
-            <input type="text" name="username"/><br>
-			<input type="password" name="password"/>
+            <input type="text" class="username" name="username" /><br>
+			<input type="password" class="password" name="password"/>
 			<input type="hidden" name="CreateAccount"/>
 			
 		</form>
