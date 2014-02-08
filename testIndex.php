@@ -15,9 +15,9 @@
         
         
         <img src="hotspot.png" class="logo" alt="HotSpot"> 
-        <img src="logintriangle" class="triangle">
-        <img src="locarrowone" class="locarrowone">
-        <img src="locarrowtwo" class="locarrowtwo"> 
+        <img src="logintriangle.png" class="triangle">
+        <img src="locarrowone.png" class="locarrowone">
+        <img src="locarrowtwo.png" class="locarrowtwo"> 
         
         <div id="Hotspot";> 
         <p> HotSpot: Bringing People Together </p>
