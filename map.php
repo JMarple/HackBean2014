@@ -13,12 +13,54 @@
     <script type="text/javascript">
       function initialize() {
         var mapOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
+          center: new google.maps.LatLng(21.854, 4.987),
           zoom: 8
         };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
+          
+          
+     var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
-      }
+ 
+    // info window test      
+        
+    var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading"> Test Header</h1>'+
+      '<div id="bodyContent">'+
+      '<p>This is a test info Window</p>'+
+      '</div>'+
+      '</div>';
+          
+      var infowindow = new google.maps.InfoWindow({
+          
+      content: contentString
+          
+  });
+          
+      var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: ' Justin is Sexy '
+  });
+          
+          
+  google.maps.event.addListener(marker, 'click', function() {
+      
+    infowindow.open(map,marker);
+      
+  });
+}
+
+          
+          // Marker 
+          
+          var marker = new google.maps.Marker({
+              position: myLatlng,
+              map: map,
+              title: "Place One"
+              
+      });
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
