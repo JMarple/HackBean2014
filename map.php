@@ -23,7 +23,7 @@
 	
 	//Convert to array
 	$obj = json_decode($request->body, true);
-	
+	//var_dump($obj['data'][0]);
 	$data;
 	
 	$i = 0;
@@ -33,7 +33,11 @@
 		$data[$i]['name'] = $value['name'];
 		$data[$i]['latitude'] = $value['latitude'];
 		$data[$i]['longitude'] = $value['longitude'];
-		
+		$data[$i]['desc'] = $value['description'];
+		$data[$i]['street'] = $value['address_obj']['street1'];
+		$data[$i]['citystate'] = $value['address_obj']['city'] . ", " . $value['address_obj']['state'];
+		$data[$i]['postalcode'] = $value['address_obj']['postalcode'];  
+		$data[$i]['weburl'] = $value['web_url'];
 		$i++;
 	}
 ?>
@@ -94,9 +98,11 @@
 			title: place[i]['name']	
 		});
 
-		$content = "<div style='font-size: 18px'>" + place[i]['name'] + "</div>" + 
-		"<img src='http://maps.googleapis.com/maps/api/streetview?size=250x250&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" 
-			;
+		$content = "<div style='font-weight:400; font-size: 14px'>" + place[i]['name'] + "</div>" +
+		"<div style='font-size: 14px'>" + place[i]['street'] + ", " + place[i]['citystate'] + "</div><br/>" +
+		 "<a href='" + place[i]['weburl'] + "'>"+place[i]['name']+"'s TripAdvisor Review</a><br/><br/>" + 
+		"<img src='http://maps.googleapis.com/maps/api/streetview?size=250x100&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" 
+			+ place[i]['desc'];
 		//Bind Info window and marker
 		bindInfoWindow(marker, map, infowindow, $content);
 	  }
