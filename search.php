@@ -12,7 +12,14 @@
         <body> 
         
         
-            <?php echo "Hello World!"; ?> 
+            <?php echo "
+            <form> 
+                    <th><input type="text"> 
+            </form> 
+            
+            
+            
+            "; ?> 
             <?php echo "Catcatcat"; ?>
             
         
