@@ -3,7 +3,7 @@
     
     
     <head>
-        
+        <title> Inbetween App</title>
     </head>
         
     
@@ -12,7 +12,7 @@
         <body> 
         
         
-            <?php echo <p> Hello World! </p> ?> 
+            <?php echo Hello World!; ?> 
             
         
         
