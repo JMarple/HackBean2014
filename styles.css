@@ -35,7 +35,7 @@ input:focus, textarea:focus {
     
     
     color:#fff; 
-    font-size: 28px;
+    font-size: 15%;
     text-indent: 2%;
     
     
@@ -130,7 +130,7 @@ input:focus, textarea:focus {
    font-family:  "verdana", sans-serif;
     
     color:#fff;
-    font-size: 40px;
+    font-size: 25%;
     
 
     position: absolute;
