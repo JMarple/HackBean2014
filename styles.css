@@ -6,6 +6,12 @@ html{
     
 }
 
+input:focus, textarea:focus {
+    outline: none;
+}
+
+/* Search Box One */ 
+
 .inputone {
     
     border-color:#fff;
@@ -30,9 +36,13 @@ html{
     
     color:#fff; 
     font-size: 28px;
+    text-indent: 1%;
     
     
 }
+
+
+/* Search Box two */
 
 .inputtwo {
     
@@ -58,12 +68,12 @@ html{
     
     color:#fff; 
     font-size: 28px;
-    
+    text-indent: 1%;
     
     
 } 
 
-
+/* Top menu Bar */
 
 #topbar {
     
@@ -72,17 +82,24 @@ html{
     float:left;
     background-color:#B0B0B0; 
     height: 5%;
-    width: 100%;
+    width: 120%;
     border-color:#B0B0B0;
+    border:none;
+    margin:none;
     
+    top:-10%;
     
 } 
+
+/* login username field */
 
 .username {
     
     background-color:transparent;
     border-color:transparent;
     
+  
+/* login password field */
     
 }
 
@@ -104,10 +121,11 @@ html{
     
 } 
 
+/* Breadcrumb text above search boxes */
 
 #hotspot {
     
-   font-family:  "verdana", "Geneva", sans-serif;
+   font-family:  "verdana", sans-serif;
     
     color:#fff;
     font-size: 40px;
