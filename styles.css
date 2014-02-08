@@ -118,8 +118,8 @@ input:focus, textarea:focus {
     position:absolute;
     z-index: 2;
     
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     
     
 } 
@@ -136,10 +136,34 @@ input:focus, textarea:focus {
 
     position: absolute;
     left:33%;
-    top:30%;
+    top:30%;   
     
+}
+
+
+
+#login {
     
+ float:right;
+ margin-top:5px; 
+ font-size:20px; 
+}
+
+
+#breadcrumb {
     
+    float:right;
+    
+    height: 6%;
+    width: 15%;
     
     
 }
+
+#breadcrumb a.hover {
+    
+    background-color:#BBBBBB;
+    
+}
+
+

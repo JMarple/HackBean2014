@@ -3,13 +3,21 @@
 		<title>HotSpot!</title>
         <link rel="stylesheet" href="styles.css" />
         <script src="modernizr.js"></script>
-
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	</head>
 	
 	<body>
         <div id="topbar" width="100%"; > </div>
         
+        <div id="login"; ></div>
+        
+        <div id="breadcrumb";></div>
+        
+        
         <img src="hotspot.png" class="logo" alt="HotSpot"> 
+        <img src="logintriangle" class="triangle">
+        <img src="locarrowone" class="locarrowone">
+        <img src="locarrowtwo" class="locarrowtwo"> 
         
         <div id="Hotspot";> 
         <p> HotSpot: Bringing People Together </p>
