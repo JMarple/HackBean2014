@@ -93,5 +93,12 @@
 			<input type="hidden" name="CreateAccount"/>
 			<input type="submit"/>
 		</form>
+			<br/>
+		<br/>
+		<form action="find.php" method="post">
+		Search:
+			<input type="text" name="search"/>
+			<input type="submit"/>
+		</form>
 	</body>
 </html>
