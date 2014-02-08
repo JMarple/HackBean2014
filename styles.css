@@ -167,3 +167,15 @@ input:focus, textarea:focus {
 }
 
 
+#box {
+    
+    height:30%;
+    width:30%;
+    
+    background-color:#fff;
+    opacity:0.6;
+    position:absolute;
+    left:30%;
+    top:40%;
+}
+

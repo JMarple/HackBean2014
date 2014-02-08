@@ -13,6 +13,8 @@
         
         <div id="breadcrumb";></div>
         
+        <div id="box";></div>
+        
         
         <img src="hotspot.png" class="logo" alt="HotSpot"> 
         <img src="logintriangle.png" class="triangle">
