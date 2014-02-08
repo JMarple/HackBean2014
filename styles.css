@@ -132,7 +132,7 @@ input:focus, textarea:focus {
     
     color:#fff;
     font-size: 40px;
-    
+    opacity:60%;
 
     position: absolute;
     left:33%;
