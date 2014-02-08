@@ -61,7 +61,7 @@
 						or die(mysql_error());
 						
 					$_SESSION['userid'] = $row['ID'];
-					$_SESSION['username'] = $row['username'];
+					$_SESSION['username'] = $user;
 					$_SESSION['loggedin'] = true;
 				}
 				else
@@ -184,23 +184,22 @@
 			<input type="text" class="username" placeholder="Username" name="username"/><br>
             <input type="password" class="password" placeholder="Password" name="password"/>
 			<input type="hidden" name="login"/>
-            <input type="submit" class="login" name="Login" > 
+            <input type="submit" class="login" name="login" > 
             
 		</form>
-		<br/>
-		<br/>
+		
 	<form action="index.php" method="post">
-		<!--	Create New Account <br/>
+			Create New Account <br/>
 			Username: <input type="text" name="username"/><br>
 			Password: <input type="password" name="password"/>
 			<input type="hidden" name="CreateAccount"/>
-			<input type="submit"/> --> 
+			<input type="submit"/> 
 		</form> 
 			<br/>
 		<?php }
 		else 
 		{ ?>
-		Signed in as : <?php echo $_SESSION['username'];?>
+	<div class="user"> Hello <?php echo $_SESSION['username'];?> </div>
 		<br/>
 		<form action="index.php" method="post">
 			<input type="submit" value="logout"/>
