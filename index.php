@@ -135,6 +135,7 @@
 		</script>
 	</head>
 	
+    
 	<body>
         
         <div id="topbar" width="100%"; > </div>
@@ -177,17 +178,17 @@
 		</form> -->
 
 		
-		<form action="find.php" method="post">
+		
         
             
 		
-			<input type="text" class="inputone" placeholder="My Location..." name="search"/>
-			<input type="text" class="inputtwo" placeholder="Their Location..." name="searchbox"/>
-            
-            <input type="submit" class="submitbutton" value="Search">
 			
             
         
+            
+            
+            
+            
 		<?php if(!isset($_SESSION['loggedin']))
 		{?>
 		<form action="index.php" method="post">
@@ -199,13 +200,13 @@
 		</form>
 		<br/>
 		<br/>
-		<form action="index.php" method="post">
+		<!-- <form action="index.php" method="post">
 			Create New Account <br/>
 			Username: <input type="text" name="username"/><br>
 			Password: <input type="password" name="password"/>
 			<input type="hidden" name="CreateAccount"/>
-			<input type="submit"/>
-		</form>
+			<input type="submit"/> 
+		</form> -->
 			<br/>
 		<?php }
 		else 
@@ -231,7 +232,7 @@
 		<br/>
 		<form action="find.php" method="post">
 		Search: <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
-			<input id="yourSearch" type="text" name="search2"/><br/>
+			<input id="inputone" type="text" name="inputtwo"/><br/>
 			<input type="text" name="search"/>
 			<input type="submit"/>
 			<input id="yourLat" type="hidden" name="lat"/>
@@ -240,7 +241,7 @@
 				
 			</script>
 		</form>
-		<br/><br/>
+		
 
 	</body>
 </html>
