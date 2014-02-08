@@ -78,7 +78,7 @@
 	</head>
 	
 	<body>
-        <div id="topbar" width="100%" height="40px";> </div>
+        <div id="topbar" width="100%" height="5%";> </div>
         
 		<form action="index.php" method="post">
 			
