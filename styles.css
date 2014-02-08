@@ -16,14 +16,15 @@ html{
     border-bottom-left-radius: 10px 10px;
     border-bottom-right-radius: 10px 10px;
     
-    height: 7%;
+    height: 5%;
     width: 15%;
     margin: 6px;
     
     display: block;
     vertical-align: middle;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    margin: auto;
     
     
     color:#fff; 
@@ -36,8 +37,9 @@ html{
     
   
     background-color:#B0B0B0; 
-    height: 40px;
+    height: 5%;
     width: 100%;
+    border-color:#B0B0B0;
     
     
 } 
@@ -59,7 +61,7 @@ html{
 
 #logo {
     
-    float: left; 
+    
     height: 30px;
     width: 30px;
     background-image:url('http://i.imgur.com/XshZdBb.png');
@@ -69,12 +71,14 @@ html{
 
 #hotspot {
     
+    color:#fff;
     font-size: 40px;
     
     display: block;
     margin-left: auto;
     margin-right: auto;
     
+    margin: auto;
     
     
     
