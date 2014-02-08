@@ -6,7 +6,7 @@ html{
     
 }
 
-.input {
+.inputone {
     
     border-color:#fff;
     background-color: transparent; 
@@ -22,9 +22,10 @@ html{
     width: 15%;
     margin: 6px;
     
-    position:relative;
-    left:45%;
-    margin-top:20%;
+    position:absolute;
+    left:30%;
+    top:50%;
+    
     
     
     color:#fff; 
@@ -32,6 +33,37 @@ html{
     
     
 }
+
+.inputtwo {
+    
+    border-color:#fff;
+    background-color: transparent; 
+    border-left-color:#fff;
+    border-top-color:#fff;
+    
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    
+    height: 5%;
+    width: 15%;
+    margin: 6px;
+    
+    position:absolute;
+    left:30%;
+    top:55%;
+    
+    
+    
+    color:#fff; 
+    font-size: 28px;
+    
+    
+    
+} 
+
+
 
 #topbar {
     

@@ -110,8 +110,8 @@
         
             
 		
-			<input type="text" class="input" name="search"/>
-			<input type="text" class="input" name="searchbox"/>
+			<input type="text" class="inputone" name="search"/>
+			<input type="text" class="inputtwo" name="searchbox"/>
 			
             
       
