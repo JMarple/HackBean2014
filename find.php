@@ -12,7 +12,10 @@
 		
 		//Convert to array
 		$obj = json_decode($request->body, true);
-		//var_dump($obj);
+		
+		if(!isset($obj['geos'][0]))
+			header("Location: index.php?err=s");
+
 		$longitude = $obj['geos'][0]['longitude'];
 		$latitude = $obj['geos'][0]['latitude'];
 		
