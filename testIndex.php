@@ -79,20 +79,20 @@
 	
 	<body>
 		<form action="index.php" method="post">
-			Log in <br/>
-			Username: <input type="text" name="username"/><br>
-			Password: <input type="password" name="password"/>
+			
+			<input type="text" class="login" name="username"/><br>
+            <input type="password" class="login" name="password"/>
 			<input type="hidden" name="login"/>
-			<input type="submit"/>
+			
 		</form>
 		<br/>
 		<br/>
 		<form action="index.php" method="post">
-			Create New Account <br/>
-			Username: <input type="text" name="username"/><br>
-			Password: <input type="password" name="password"/>
+            
+            <input type="text" name="username"/><br>
+			<input type="password" name="password"/>
 			<input type="hidden" name="CreateAccount"/>
-			<input type="submit"/>
+			
 		</form>
 			<br/>
 		<br/>
