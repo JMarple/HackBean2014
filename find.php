@@ -11,15 +11,14 @@
 	
 	$data;
 	
+	$i = 0;
 	//Go through each object and get data
 	foreach($obj['data'] as $value)
 	{
-		//var_dump($value);
-		echo $value['name'];
-		echo "<br/>Latitude:";
-		echo $value['latitude'];
-		echo "<br/>Longitude";
-		echo $value['longitude'];
-		echo "<br/><br/>";
+		$data[$i]['name'] = $value['name'];
+		$data[$i]['latitude'] = $value['latitude'];
+		$data[$i]['longitude'] = $value['longitude'];
+		
+		$i++;
 	}
 ?>
