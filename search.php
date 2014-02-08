@@ -12,15 +12,13 @@
         <body> 
         
         <form action="welcome.php" method="post">
-        Name: <input type="text" name="Where you are"><br>
-        <input type="submit">
+        Name: <input type="text" Where You Are="Where you are"><br>
         </form>
             
         <br>    
             
         <form action="welcome.php" method="post">
-        Name: <input type="text" name="Where they are"><br>
-        <input type="submit">
+        Name: <input type="text" Where They Are="Where they are"><br>
         </form>   
         
         
