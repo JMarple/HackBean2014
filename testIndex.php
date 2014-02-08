@@ -78,7 +78,13 @@
 	</head>
 	
 	<body>
-        <div id="topbar" width="100%" height="5%";> </div>
+        <div id="topbar";> </div>
+        
+        <div id="logo";>  </div>
+        
+        <div id="Hotspot";> 
+        <p> HotSpot: Bringing People Together </p>
+        </div>
         
 		<form action="index.php" method="post">
 			

@@ -11,17 +11,19 @@ html{
     border-color:#fff;
     background-color: transparent; 
     
-    border-top-left-radius: 10px 5px;
-    border-top-right-radius: 10px 5px;
-    border-bottom-left-radius: 10px 5px;
-    border-bottom-right-radius: 10px 5px;
+    border-top-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
     
     height: 7%;
     width: 15%;
     margin: 6px;
     
-    margin-left:auto;
-    margin-right:auto;
+    display: block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto
     
     
     color:#fff; 
@@ -35,6 +37,7 @@ html{
   
     background-color:#B0B0B0; 
     height: 40px;
+    width: 100%;
     
     
 } 
@@ -53,3 +56,29 @@ html{
     background-color:transparent;
     border-color: transparent; 
 } 
+
+#logo {
+    
+    float: left; 
+    height: 30px;
+    width: 30px;
+    background-image:url('http://i.imgur.com/XshZdBb.png');
+    
+} 
+
+
+#hotspot {
+    
+    font-size: 40px;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+    
+    
+    
+    
+    
+}
