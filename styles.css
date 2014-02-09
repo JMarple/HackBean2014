@@ -150,8 +150,8 @@ input:focus, textarea:focus {
     position:absolute;
     z-index: 2;
     
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 60px;
     
     
 } 
