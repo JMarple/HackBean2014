@@ -20,12 +20,19 @@
 		//Get Request
 		$request = Requests::get('http://api.tripadvisor.com/api/partner/1.0/search/'.$search.'?category=geos&key=92C34F58BB4F4E03894F5D171B79857E&limit=50');
 		
+		
 		//Convert to array
 		$obj = json_decode($request->body, true);
+		
+		//var_dump($obj);
 
 		if(!isset($obj['geos'][0]))
+		{
 			header("Location: index.php?err=s");
+			exit();
+		}
 
+		
 		$longitude = $obj['geos'][0]['longitude'];
 		$latitude = $obj['geos'][0]['latitude'];		
 		
