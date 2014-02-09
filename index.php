@@ -106,7 +106,9 @@
 					 initialLong = position.coords.longitude;
 					 document.getElementById("yourSearch").value = "Your location has been added";
 					 document.getElementById("yourLat").value = initialLat;
-					 document.getElementById("yourLong").value = initialLong;;
+					 document.getElementById("yourLong").value = initialLong;
+					 document.getElementById("yourLat2").value = initialLat;
+					 document.getElementById("yourLong2").value = initialLong;
 					
 			    }, function() {
 			      handleNoGeolocation(browserSupportFlag);

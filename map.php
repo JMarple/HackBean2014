@@ -372,11 +372,23 @@
 		::-webkit-scrollbar-corner {
 		    background: #000;
 		}
+		
+		.backbutton:hover
+		{
+			background-color: #888;
+			cursor: pointer;
+		}
     </style>
   </head>
   <body>
 	<div class="navbar">
-		<form action="group.php" method="post" style="display:inline;margin: 0px; padding: 0px;">
+		<div id="backbut" class="backbutton" style="float: left; font-family: Arial; padding-left: 5px; padding-top: 13px; width: 60px; color: #DDD; height: 45px;">
+			&#9668; Back 
+		</div>
+		<script>
+			$('#backbut').click( function(){ window.location = "index.php"; });
+		</script>
+		<form action="group.php" method="post" style="display:inline; margin: 0px; padding: 0px;">
 			<input class="textboxs" placeholder="Add New Location" type="textbox" name="search"/>
 			<input class="submitButton" type="submit" />
 			<input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
@@ -415,13 +427,14 @@
 		 for(var i = 0; i < place.length; i++)
 		 {
 			 var content = 
-				 "<div class='selectionObject'>" +
+				 "<div id='place"+i+"' class='selectionObject'>" +
 				 	"<div class='selectionRater'>" +
 				 	"</div>" +
 				 	"<div style='font-weight:400; font-size: 14px'>" + 
 				 		place[i]['name'] + 
 					 "</div>"+
 					 "<img style='margin:5px' src='http://maps.googleapis.com/maps/api/streetview?size=130x80&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" +
+				"<script>< /script>"+
 				"</div>";
 			 document.getElementById('selectionBar').innerHTML = document.getElementById('selectionBar').innerHTML + content;
 		 }
