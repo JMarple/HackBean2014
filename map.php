@@ -13,8 +13,6 @@
 	mysql_select_db($db);
 	$data;
 	
-	echo "USERID: " . $userid;
-	
 	if($result = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`group` WHERE `ID`='$userid'"))
 	{		
 		if(mysql_num_rows($result) > 0)
@@ -331,6 +329,10 @@
     		margin-left: 10px;
     		box-shadow: 0px 0px 2px #000;
     	}
+    	.selectionObject.green
+    	{
+    		border: 2px solid #797;
+    	}
     	.selectionObject:hover
     	{
     		background-color: #777777;
@@ -346,6 +348,7 @@
     		z-index: 10;
     		text-align: center;
     	}
+  
     	.dropdownArrow
     	{
     		width: 200px; 
@@ -374,11 +377,23 @@
 		::-webkit-scrollbar-corner {
 		    background: #000;
 		}
+		
+		.backbutton:hover
+		{
+			background-color: #888;
+			cursor: pointer;
+		}
     </style>
   </head>
   <body>
 	<div class="navbar">
-		<form action="group.php" method="post" style="display:inline;margin: 0px; padding: 0px;">
+		<div id="backbut" class="backbutton" style="float: left; font-family: Arial; padding-left: 5px; padding-top: 13px; width: 60px; color: #DDD; height: 45px;">
+			&#9668; Back 
+		</div>
+		<script>
+			$('#backbut').click( function(){ window.location = "index.php"; });
+		</script>
+		<form action="group.php" method="post" style="display:inline; margin: 0px; padding: 0px;">
 			<input class="textboxs" placeholder="Add New Location" type="textbox" name="search"/>
 			<input class="submitButton" type="submit" />
 			<input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
@@ -417,13 +432,14 @@
 		 for(var i = 0; i < place.length; i++)
 		 {
 			 var content = 
-				 "<div class='selectionObject'>" +
+				 "<div id='place"+i+"' class='selectionObject'>" +
 				 	"<div class='selectionRater'>" +
 				 	"</div>" +
 				 	"<div style='font-weight:400; font-size: 14px'>" + 
 				 		place[i]['name'] + 
 					 "</div>"+
 					 "<img style='margin:5px' src='http://maps.googleapis.com/maps/api/streetview?size=130x80&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" +
+				"<script>$('#place"+i+"').click(function(){ console.log('hi');  });< /script>"+
 				"</div>";
 			 document.getElementById('selectionBar').innerHTML = document.getElementById('selectionBar').innerHTML + content;
 		 }
