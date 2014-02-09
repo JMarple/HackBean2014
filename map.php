@@ -26,14 +26,12 @@
 		}
 		else
 		{
-			//header("Location: index.php");
-			echo "what";
+			header("Location: index.php");	
 		}
 	}
 	else
 	{
-		echo "fu";
-		//header("Location: index.php");
+		header("Location: index.php");
 	}
 	
 	
