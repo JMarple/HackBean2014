@@ -407,3 +407,16 @@ p:hover span{
 {
 	cursor:pointer;
 }
+
+.maplistobject
+{
+	padding-top: 15px;
+	width: 500px; 
+	border-top: 1px solid #CCC; 
+	height: 40px;
+}
+.maplistobject:hover
+{
+	cursor: pointer;
+	background-color: #FAFAFA;
+}

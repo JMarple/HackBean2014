@@ -80,6 +80,22 @@
 		session_destroy();
 		header("Location: index.php");
 	}
+	
+	$yourMaps;
+	if(isset($_SESSION['loggedin']))
+	{
+		$userid = $_SESSION['userid'];
+		if($result = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`hackbean` WHERE `ID` = $userid"))
+		{
+			if(mysql_num_rows($result) > 0)
+			{
+				$row = mysql_fetch_assoc($result);
+				
+				$yourMaps = json_decode($row['maps']);
+			}
+			
+		}
+	}
 ?>
 
 <html>
@@ -104,11 +120,12 @@
 			      	initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 			    	 initialLat = position.coords.latitude;
 					 initialLong = position.coords.longitude;
+					 document.getElementById("yourLat2").value = initialLat;
+					 document.getElementById("yourLong2").value = initialLong;
 					 document.getElementById("yourSearch").value = "Your location has been added";
 					 document.getElementById("yourLat").value = initialLat;
 					 document.getElementById("yourLong").value = initialLong;
-					 document.getElementById("yourLat2").value = initialLat;
-					 document.getElementById("yourLong2").value = initialLong;
+
 					
 			    }, function() {
 			      handleNoGeolocation(browserSupportFlag);
@@ -209,10 +226,12 @@
 		
 		<br/>
 		<br/>
+		<?php if(!isset($_SESSION['loggedin']))
+		{?>
 		<div style="width: 600px; height: 325px; text-align: center; background-color: #FFF; border-radius: 50px; margin: 0px auto; margin-top: 100px; box-shadow: 0px 0px 10px #000;">
 			<div id="hotspot_main">
 				<form action="find.php" method="post">
-				 <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
+				 	<?php if(isset($_GET['err'])) echo "Error in search"?><br/>
 					<div style="width: 600px; height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">CrossPath</div>
 					<input class="inputBox3" readonly id="yourSearch" type="text"  placeholder="My Location..." name="search2"/>
 					<br/>
@@ -221,7 +240,7 @@
 					<input type="submit" class="submitbutton" value="Search"/>
 					<input id="yourLat" type="hidden" name="lat"/>
 					<input id="yourLong" type="hidden" name="long"/>
-					<?php if(!isset($_SESSION['loggedin'])){?><div id="infologo" class="hoverdiv" style="font-size: 14px; width: 500px; text-align: right; color: #0645AD;"><u>Create Account</u></div><?php }?>	
+					<div id="infologo" class="hoverdiv" style="font-size: 14px; width: 500px; text-align: right; color: #0645AD;"><u>Create Account</u></div>
 				</form>
 			</div>
 			<div id="create_main" style="display: none;">
@@ -242,6 +261,29 @@
 		$('#backLogo').click(function(){ $('#hotspot_main').slideToggle(); $('#create_main').slideToggle(); });
 	     </script>
 		</div>
+		<?php }
+		else {//$yourMaps ?>
+			<div style="width: 600px; height: 325px; text-align: center; background-color: #FFF; border-radius: 50px; margin: 0px auto; margin-top: 100px; box-shadow: 0px 0px 10px #000;">
+				<div style="width: 600px;  height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">Your Arrangments</div>
+				<div style="overflow-y: scroll; overflow-x: hidden; margin-left: 50px; width: 500px; height: 250px; font-size: 18px; font-family: Arial;"> 
+					<?php 
+					if (is_array($yourMaps))
+					{
+						foreach($yourMaps as $tmap)
+						{
+							echo '<div id="cmap'.$tmap.'" class="maplistobject">'.$tmap.'</div>';
+							echo "<script>$('#cmap".$tmap."').click( function(){ window.location = \"map.php?id=".$tmap."\"});</script>";
+						}
+					}
+					else
+					{
+						echo "You have no arrangments";
+					}
+					?>
+				</div>
+			
+			</div>		
+		<?php } ?>
 		<br/><br/>
 
 	</body>
