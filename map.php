@@ -13,9 +13,10 @@
 	mysql_select_db($db);
 	$data;
 	
-	if($result = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`group` WHERE `ID`='$userid'"))
+	echo $userid;
+	
+	if($result = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`group` WHERE ID=$userid"))
 	{		
-		var_dump($result);
 		if(mysql_num_rows($result) > 0)
 		{
 			$row = mysql_fetch_assoc($result);
@@ -31,8 +32,7 @@
 	}
 	else
 	{
-		//header("Location: index.php");
-		echo mysql_error();
+		header("Location: index.php");
 	}
 	
 	
