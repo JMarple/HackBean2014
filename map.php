@@ -1,7 +1,7 @@
 <?php 
 
 	session_start();
-	$userid = mysql_real_escape_string($_GET['id']);
+	$userid = $_GET['id'];
 	
 	$host = "us-cdbr-east-05.cleardb.net";
 	$user = "b85ad415edfa4d";
