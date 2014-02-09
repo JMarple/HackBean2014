@@ -100,7 +100,7 @@
 
 <html>
 	<head>
-        <title>HotSpot!</title>
+        <title>CrossPath - Home</title>
         <link rel="stylesheet" href="styles.css" />
         <script src="modernizr.js"></script>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -184,7 +184,7 @@
         
         
         
-       <img src="hotspot.png" href="http://secure-waters-3897.herokuapp.com/index.php"  class="logo" alt="HotSpot">  
+       <img src="crosspath.png" href="http://secure-waters-3897.herokuapp.com/index.php"  class="logo" alt="HotSpot">  
    <!--    <img src="logintriangle.png" class="triangle">
         <img src="locarrowone.png" class="locarrowone">
         <img src="locarrowtwo.png" class="locarrowtwo">-->
