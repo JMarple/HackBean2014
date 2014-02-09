@@ -193,12 +193,12 @@
 	<div class="user"> Hello <?php echo $_SESSION['username'];?> </div>
 		<br/>
 		<form action="index.php" method="post">
-			<input type="submit" value="logout"/>
+			<input type="submit" class="logout" value="(logout)"/>
 			<input type="hidden" name="SignOut"/>
 		</form>
 		<br/><br/>
 		<form action="group.php" method="post">
-			New Group : <input type="submit" />
+            <input type="submit" class="newgroup" value="New Group"/>
 			<input id="yourLat2" type="hidden" name="lat" value=""/>
 			<input id="yourLong2" type="hidden" name="long" value=""/>
 			<input type="hidden" name="newGroup"/>

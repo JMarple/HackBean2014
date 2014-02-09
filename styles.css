@@ -28,7 +28,7 @@ input:focus, textarea:focus {
     
     position:absolute;
     left:37%;
-    top:45%;
+    top:35%;
     
     
     
@@ -60,7 +60,7 @@ input:focus, textarea:focus {
     
     position:absolute;
     left:37%;
-    top:55%;
+    top:45%;
     
     
     
@@ -85,7 +85,7 @@ input:focus, textarea:focus {
     z-index:1;
     float:left;
     background-color:#6E6E6E; 
-    height: 70px;
+    height: 45px;
     width: 120%;
     border-color:#6E6E6E;
     border:none;
@@ -107,11 +107,11 @@ input:focus, textarea:focus {
     border-color:transparent;
     z-index:50;
     right:17%;
-    height:30px;
+    height:20px;
     width:250px;
     
     text-indent: 2%;
-    margin-top:-19px;
+    margin-top:-25px;
     
     border-top-left-radius: 5px 5px;
     border-top-right-radius: 5px 5px;
@@ -132,10 +132,10 @@ input:focus, textarea:focus {
     z-index:50;
     background-color:#fff;
     border-color: transparent; 
-    height:30px;
+    height:20px;
     width:250px;
     right:3%;
-    margin-top:-37px;
+    margin-top:-43px;
     
     
      border-top-left-radius: 5px 5px;
@@ -146,11 +146,12 @@ input:focus, textarea:focus {
 
 .logo {
     
+    margin-top:-5px;
     position:absolute;
     z-index: 2;
     
-    height: 45px;
-    width: 45px;
+    height: 30px;
+    width: 30px;
     
     
 } 
@@ -250,7 +251,7 @@ input:focus, textarea:focus {
     
       position:absolute;
       left:37.5%;
-      top:70%;
+      top:60%;
     
        margin: 0;
        padding: 0;
@@ -270,7 +271,7 @@ input:focus, textarea:focus {
 
     width: 25px;
     height:25px;
-    margin-top:-12.5px;
+    margin-top:-24.5px;
    
     
     
@@ -348,7 +349,63 @@ p:hover span{
     
     position: absolute;
     z-index:105;
-    font-size:20px;
+    font-size:1vw;
     left: 80%;
+    color:#fff; 
+    font-family:  "verdana", sans-serif;
+    margin-top:-27.5px;
+    
+}
+
+.logout {
+    
+    margin-top:-35px;
+    margin-left:-90px;
+    position:absolute;
+      font-size: 1vw;
+      height: 40px;
+      width: 100px;
+       border: none;
+       font-family:  "verdana", sans-serif;
+    z-index:206;
+    color:#fff;
+    left:90%;
+    background-color:transparent; 
+    
+}
+
+.logout:hover {
+ 
+    color:lightblue;
+}
+
+.newgroup {
+    
+     
+      content:'';
+      font-size: 0.8vw;
+      cursor:pointer;
+      color:#fff;
+      height: 25px;
+      width: 6%;
+      font-family:  "verdana", sans-serif;
+    
+      position:absolute;
+      left:92%;
+      top:0.3%;
+    
+       margin: 0;
+       padding: 0;
+       background: #00A5D9 url(image) 0 0 no-repeat; 
+       border: none;
+    z-index:207;
+    
+      border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    
+    
+    
     
 }
