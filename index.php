@@ -164,10 +164,10 @@
            {
            
            ?>
-            <div style="height: 45px; width: 200px; position: absolute; float: rigt; right: 50px;">
+            <div style="height: 45px; width: 200px; position: absolute; float: rigt; right: 215px;">
 				<input type="text" class="username" placeholder="Username" name="username"/><br>
             </div>
-            <div style="height: 45px; width: 200px; position: absolute; float: right; right: 255px;">
+            <div style="height: 45px; width: 200px; position: absolute; float: right; right: 30px;">
             	<input type="password" class="password" placeholder="Password" name="password"/>
 			</div>
 			<input type="hidden" name="login"/>
@@ -233,14 +233,16 @@
 				<form action="find.php" method="post">
 				 	<?php if(isset($_GET['err'])) echo "Error in search"?><br/>
 					<div style="width: 600px; height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">CrossPath</div>
-					<input class="inputBox3" readonly id="yourSearch" type="text"  placeholder="My Location..." name="search2"/>
+					<input class="inputBox3" readonly id="yourSearch" type="text"  placeholder="Goelocation not found yet..." name="search2"/>
 					<br/>
 					<input class="inputBox3" type="text" name="search"  placeholder="Where To?"/>
 					<br/><br/>
 					<input type="submit" class="submitbutton" value="Search"/>
 					<input id="yourLat" type="hidden" name="lat"/>
 					<input id="yourLong" type="hidden" name="long"/>
-					<div id="infologo" class="hoverdiv" style="font-size: 14px; width: 500px; text-align: right; color: #0645AD;"><u>Create Account</u></div>
+					<input id="yourLat2" type="hidden" name="lat"/>
+					<input id="yourLong2" type="hidden" name="long"/>
+					<div id="infologo" class="hoverdiv" style="font-size: 14px; margin-top: 10px; width: 500px; text-align: right; color: #0645AD;"><u>Create Account</u></div>
 				</form>
 			</div>
 			<div id="create_main" style="display: none;">

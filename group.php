@@ -39,7 +39,7 @@ if(isset($_SESSION['loggedin']))
 					
 					mysql_query("UPDATE `heroku_807bde1acfd096e`.`hackbean` SET maps='$json2' WHERE `ID`=$user" )
 						or die(mysql_error());		
-
+					
 					header("Location: map.php?id=".$id);			
 				}
 			}
