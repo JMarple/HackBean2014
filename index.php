@@ -264,14 +264,14 @@
 		<?php }
 		else {//$yourMaps ?>
 			<div style="width: 600px; height: 325px; text-align: center; background-color: #FFF; border-radius: 50px; margin: 0px auto; margin-top: 100px; box-shadow: 0px 0px 10px #000;">
-				<div style="width: 600px;  height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">Your Arrangments</div>
-				<div style="overflow-y: scroll; overflow-x: hidden; margin-left: 50px; width: 500px; height: 250px; font-size: 18px; font-family: Arial;"> 
+				<div style="width: 600px;  height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">Your Profile</div>
+				<div style="float:left; overflow-y: scroll; overflow-x: hidden; margin-left: 50px; width: 200px; height: 250px; font-size: 18px; font-family: Arial;"> 
 					<?php 
 					if (is_array($yourMaps))
 					{
 						foreach($yourMaps as $tmap)
 						{
-							echo '<div id="cmap'.$tmap.'" class="maplistobject">'.$tmap.'</div>';
+							echo '<div id="cmap'.$tmap.'" class="maplistobject">Map #'.$tmap.'</div>';
 							echo "<script>$('#cmap".$tmap."').click( function(){ window.location = \"map.php?id=".$tmap."\"});</script>";
 						}
 					}
@@ -280,6 +280,17 @@
 						echo "You have no arrangments";
 					}
 					?>
+				</div>
+				<div style="width:350px; height: 200px; float:right;">
+				<form action="find.php" method="post">
+					<input class="inputBox3" readonly id="yourSearch" type="text"  placeholder="My Location..." style="width: 300px" name="search2"/>
+					<br/>
+					<input class="inputBox3" type="text" name="search" style="width:300px" placeholder="Where To?"/>
+					<br/><br/>
+					<input type="submit" class="submitbutton" value="Search"/>
+					<input id="yourLat" type="hidden" name="lat"/>
+					<input id="yourLong" type="hidden" name="long"/>
+				</form>
 				</div>
 			
 			</div>		

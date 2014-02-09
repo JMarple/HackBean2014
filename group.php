@@ -36,7 +36,7 @@ if(isset($_SESSION['loggedin']))
 					$data2 = json_decode($row['maps']);
 					$data2[sizeof($data2)] = $id;
 					$json2 = json_encode($data2);
-
+					
 					mysql_query("UPDATE `heroku_807bde1acfd096e`.`hackbean` SET maps='$json2' WHERE `ID`=$user" )
 						or die(mysql_error());		
 

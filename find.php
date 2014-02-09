@@ -28,6 +28,7 @@
 
 		$longitude = $obj['geos'][0]['longitude'];
 		$latitude = $obj['geos'][0]['latitude'];		
+		
 		if(isset($_SESSION['loggedin']))
 		{
 			$user = $_SESSION['userid'];
@@ -36,10 +37,9 @@
 		{
 			$user = -1;
 		}
-		
-		
+				
 		$data;
-		var_dump($_POST);
+	
 		$data[0]['userid'] = $user;
 		$data[0]['long'] = $_POST['long'];
 		$data[0]['lat'] = $_POST['lat'];
@@ -51,6 +51,26 @@
 		if($result = mysql_query("INSERT INTO `heroku_807bde1acfd096e`.`group` (`users`, `date`) VALUES ('$json', NOW())"))
 		{
 			$id = mysql_insert_id();
+			
+			if($user != -1)
+			{
+				if($result2 = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`hackbean` WHERE `id`=$user"))
+				{
+					if(mysql_num_rows($result2) > 0)
+					{
+						$row = mysql_fetch_assoc($result2);
+				
+						$data2 = json_decode($row['maps']);
+						$data2[sizeof($data2)] = $id;
+						$json2 = json_encode($data2);
+							
+						mysql_query("UPDATE `heroku_807bde1acfd096e`.`hackbean` SET maps='$json2' WHERE `ID`=$user" )
+						or die(mysql_error());
+				
+						header("Location: map.php?id=".$id);
+					}
+				}
+			}
 			header("Location: map.php?id=".$id);
 		}
 		else
