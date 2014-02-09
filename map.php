@@ -24,12 +24,14 @@
 		}
 		else
 		{
-			header("Location: index.php");
+			//header("Location: index.php");
+			echo "what";
 		}
 	}
 	else
 	{
-		header("Location: index.php");
+		//header("Location: index.php");
+		echo mysql_error();
 	}
 	
 	
