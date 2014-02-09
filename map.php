@@ -1,5 +1,6 @@
 <?php 
 
+	session_start();
 	$userid = mysql_real_escape_string($_GET['id']);
 	
 	$host = "us-cdbr-east-05.cleardb.net";
@@ -161,6 +162,38 @@
 
 	  drawYou();
 
+		// Try W3C Geolocation (Preferred)
+				  if(navigator.geolocation) {
+				    browserSupportFlag = true;
+				    navigator.geolocation.getCurrentPosition(function(position) 
+						{
+				      	initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+				    	 initialLat = position.coords.latitude;
+						 initialLong = position.coords.longitude;
+						 document.getElementById("latid").value = initialLat;
+						 document.getElementById("longid").value = initialLong;
+						
+				    }, function() {
+				      handleNoGeolocation(browserSupportFlag);
+				    });
+				  }
+				  // Browser doesn't support Geolocation
+				  else {
+				    browserSupportFlag = false;
+				    handleNoGeolocation(browserSupportFlag);
+				  }
+				
+				  function handleNoGeolocation(errorFlag) {
+				    if (errorFlag == true) {
+				      alert("Geolocation service failed.");
+				      initialLocation = newyork;
+				    } else {
+				      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+				      initialLocation = siberia;
+				    }
+				    
+				  }
+
 	}
 	
 	google.maps.event.addDomListener(window, 'load', initialize);
@@ -219,7 +252,7 @@
     	.textboxs
     	{
     		width: 180px; 
-    		margin: 3px; 
+    		margin: 5px; 
     		height: 30px; 
     		border-radius: 10px; 
     		background-color: #F0F0F0; 
@@ -248,7 +281,7 @@
     	.navbar
     	{
     		width: 100%; 
-    		height: 40px; 
+    		height: 45px; 
     		background-color: #777;
     		box-shadow: 0px 0px 3px #000;
     		position: absolute; 
@@ -313,7 +346,7 @@
     	}
     	.dropdownArrow
     	{
-    		width: 250px; 
+    		width: 200px; 
     		padding-top: 10px; 
     		text-align: center; 
     		float: right;
@@ -354,16 +387,23 @@
 		$flag = true;
 		foreach($data as $value)
 		{
-			
-			if($value['userid'] == $_SESSION['userid'])
+			if(isset($value['userid']))
 			{
-				$flag = false;
+				if($value['userid'] == $_SESSION['userid'])
+				{
+					$flag = false;
+				}
 			}
 		}
 		if($flag)
 		{
-		?><form action="group.php" method="post" style="display:inline;margin: 0px; padding: 0px;">
+		?>
+		<form action="group.php" method="post" style="display:inline;margin: 0px; padding: 0px;">
 			<input class="submitButton" type="submit" style="margin-left: 90px; width: 200px;" value="Add Your Location"/>
+			<input type="hidden" name="lat" id="latid"/>
+			<input type="hidden" name="long" id="longid"/>
+			<input type="hidden" name="addToGroupGeo"/>
+			<input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
 		</form>
 		<?php }?>
 		<div id="dropdownArrow" class="dropdownArrow">
@@ -384,7 +424,6 @@
 					 "<img style='margin:5px' src='http://maps.googleapis.com/maps/api/streetview?size=130x80&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" +
 				"</div>";
 			 document.getElementById('selectionBar').innerHTML = document.getElementById('selectionBar').innerHTML + content;
-			
 		 }
 
 		</script>

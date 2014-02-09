@@ -89,6 +89,8 @@ if(isset($_SESSION['loggedin']))
 		$long = $_POST['long'];
 		$id = $_POST['id'];	
 		
+		echo $lat;
+		echo $long;
 		if($result = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`group` WHERE id=$id"))
 		{
 			$row = mysql_fetch_assoc($result);
