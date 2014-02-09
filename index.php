@@ -172,7 +172,10 @@
 			</div>
 			<input type="hidden" name="login"/>
             <input type="submit" class="login" name="login" > 
-            <?php }?>
+            <?php }
+			else {
+				
+			}?>
 		</form></div>
         
         <div id="login"; ></div>
@@ -207,12 +210,14 @@
 		<?php }
 		else 
 		{ ?>
-	<div class="user"> Hello <?php echo $_SESSION['username'];?> </div>
+	
 		<br/>
-		<form action="index.php" method="post">
+		<div class="user"> Hello, <?php echo $_SESSION['username'];?> 
+		<form action="index.php" style="display:inline;" method="post">
 			<input type="submit" class="logout" value="(logout)"/>
 			<input type="hidden" name="SignOut"/>
 		</form>
+		</div>
 		<br/><br/>
 		<form action="group.php" method="post">
             <input type="submit" class="newgroup" value="New Group"/>

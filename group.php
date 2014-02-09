@@ -123,7 +123,25 @@ if(isset($_SESSION['loggedin']))
 			mysql_query("UPDATE `heroku_807bde1acfd096e`.`group` SET users='$json' WHERE id=$id ")
 			or die(mysql_error());
 		
-			header("Location: map.php?id=".$id);				
+			$user = $_SESSION['userid'];
+			if($result2 = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`hackbean` WHERE `id`=$user"))
+			{
+				if(mysql_num_rows($result2) > 0)		
+				{
+					$row = mysql_fetch_assoc($result2);
+
+					$data2 = json_decode($row['maps']);
+					$data2[sizeof($data2)] = $id;
+					$json2 = json_encode($data2);
+					
+					mysql_query("UPDATE `heroku_807bde1acfd096e`.`hackbean` SET maps='$json2' WHERE `ID`=$user" )
+						or die(mysql_error());		
+					
+					header("Location: map.php?id=".$id);			
+				}
+			}
+				
+					
 		}
 	}
 }

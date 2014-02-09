@@ -232,7 +232,7 @@ input:focus, textarea:focus {
 .submitbutton {
     
       content:'search';
-      font-size: 2.0vw;
+      font-size: 18px;
       cursor:pointer;
       color:#fff;
       height: 60px;
@@ -243,7 +243,6 @@ input:focus, textarea:focus {
        padding: 0;
        background: #00A5D9 url(image) 0 0 no-repeat; 
        border: none;
-    
 }
 
 .submitbutton:hover {
@@ -325,35 +324,23 @@ p:hover span{
     
     position: absolute;
     z-index:105;
-    font-size:1vw;
-    left: 80%;
+    font-size:20px;
+    right: 200px;
     color:#fff; 
     font-family:  "verdana", sans-serif;
-    margin-top:-27.5px;
-    
+    top: 7px;
+    width: 200px;
 }
 
 .logout {
-    
-    margin-top:-35px;
-    margin-left:-90px;
-    position:absolute;
-      font-size: 1vw;
-      height: 40px;
-      width: 100px;
-       border: none;
-       font-family:  "verdana", sans-serif;
-    z-index:206;
-    color:#fff;
-    left:90%;
-    background-color:transparent; 
-    
+font-size: 10px; background-color: transparent; color: white; border: 0px;
+       
 }
 
 .logout:hover {
  
     color:lightblue;
-    cusor:pointer;
+    cusor: hand;;
 }
 
 .newgroup {
