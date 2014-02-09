@@ -15,7 +15,7 @@ input:focus, textarea:focus {
 
 #yourSearch  {
     
-    border: 2px solid;
+  /*  border: 2px solid;
     
     border-color:#000;
     background-color: 6E6E6E; 
@@ -36,7 +36,7 @@ input:focus, textarea:focus {
     font-size: 1.6vw;
     text-indent: 4%;
     
-    font-family:  "verdana", sans-serif;
+    font-family:  "verdana", sans-serif;*/
     
    
     
@@ -47,20 +47,20 @@ input:focus, textarea:focus {
 
 .inputtwo {
     
-    border: 2px solid;
+    border: 2px solid #DDD;
+    border-radius: 5px;
     border-color:#000;
     background-color: 6E6E6E; 
-    background: rgba(50, 50, 50, .7);
+    background: #FFF;
+    padding: 5px;
+    
     
   
     
-    height: 10%;
-    width: 30%;
+    width: 400px;
     margin: 6px;
-    
-    position:absolute;
-    left:37%;
-    top:45%;
+
+	margin: 0px auto;
     
     
     
@@ -83,16 +83,14 @@ input:focus, textarea:focus {
     
     position:absolute;
     z-index:1;
-    float:left;
     background-color:#6E6E6E; 
     height: 45px;
-    width: 110%;
+    box-shadow: 0px 0px 4px #000;
+    width: 100%;
     border-color:#6E6E6E;
     border:none;
     margin:none;
-    
-    top:-1%;
-    left:-3%;
+    top:0px;
     
 } 
 
@@ -100,23 +98,17 @@ input:focus, textarea:focus {
 
 .username {
     
-    font-size: 0.7vw;
-    position: absolute; 
-    float:right;
+    font-size: 14px;
     background-color:#fff;
     border-color:transparent;
     z-index:50;
-    right:18%;
-    height:20px;
-    width:250px;
-    
-    text-indent: 2%;
-    margin-top:-25px;
-    
-    border-top-left-radius: 5px 5px;
-    border-top-right-radius: 5px 5px;
-    border-bottom-left-radius: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
+    padding-left: 10px;
+    height:30px;
+
+    width:190px;
+    margin-top:8px;       
+    border-radius: 5px;
+
   
 /* login password field */
     
@@ -125,23 +117,17 @@ input:focus, textarea:focus {
 
 .password {
     
-     font-size: 0.7vw;
-    text-indent: 2%;
-    position: absolute; 
+    font-size: 14px;
     float:right;
-    z-index:50;
     background-color:#fff;
-    border-color: transparent; 
-    height:20px;
-    width:250px;
-    right:3%;
-    margin-top:-43px;
-    
-    
-     border-top-left-radius: 5px 5px;
-    border-top-right-radius: 5px 5px;
-    border-bottom-left-radius: 5px 5px;
-    border-bottom-right-radius: 5px 5px;
+    border-color:transparent;
+    z-index:50;
+    padding-left: 10px;
+    height:30px;
+    margin-top:8px;
+    width:190px;
+        
+    border-radius: 5px;
 } 
 
 .logo {
@@ -248,11 +234,7 @@ input:focus, textarea:focus {
       height: 60px;
       width: 30%;
       font-family:  "verdana", sans-serif;
-    
-      position:absolute;
-      left:37.5%;
-      top:60%;
-    
+        
        margin: 0;
        padding: 0;
        background: #00A5D9 url(image) 0 0 no-repeat; 
@@ -303,17 +285,7 @@ span{
     border-bottom-right-radius: 5px 5px;
     
     
-}
-span:after{
-    
-    content:'Don\'t have an account? Click on the button!';
-    position:absolute;
-    bottom:5px;
-    width:360px;
-    height:30px;
-    
- 
-   
+} 
    
     
 
@@ -408,4 +380,17 @@ p:hover span{
     
     
     
+}
+
+
+.inputBox3
+{
+	width: 400px; 
+	height: 40px;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 10px;
+	border: 1px solid #CCC;
+	padding-left: 10px;
+	box-shadow: inset 0px 0px 2px #000;
 }

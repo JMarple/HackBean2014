@@ -88,7 +88,7 @@
         <link rel="stylesheet" href="styles.css" />
         <script src="modernizr.js"></script>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		
+		<script src="jquery.js"></script>
    		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 		<script>
 			var initialLong = 0;
@@ -104,7 +104,7 @@
 			      	initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 			    	 initialLat = position.coords.latitude;
 					 initialLong = position.coords.longitude;
-					 document.getElementById("yourSearch").value = "Current Location";
+					 document.getElementById("yourSearch").value = "Your location has been added";
 					 document.getElementById("yourLat").value = initialLat;
 					 document.getElementById("yourLat2").value = initialLat;
 					 document.getElementById("yourLong").value = initialLong;
@@ -137,9 +137,22 @@
 	
     
     
-	<body>
+	<body style="margin: 0px; padding:0px">
         
-        <div id="topbar" width="100%"; > </div>
+        <div id="topbar" width="100%"; > 
+        		<form action="index.php" method="post">
+            
+            <!-- Login code --> 
+            <div style="height: 45px; width: 200px; position: absolute; float: rigt; right: 50px;">
+				<input type="text" class="username" placeholder="Username" name="username"/><br>
+            </div>
+            <div style="height: 45px; width: 200px; position: absolute; float: right; right: 255px;">
+            	<input type="password" class="password" placeholder="Password" name="password"/>
+			</div>
+			<input type="hidden" name="login"/>
+            <input type="submit" class="login" name="login" > 
+            
+		</form></div>
         
         <div id="login"; ></div>
         
@@ -154,7 +167,6 @@
      <img src="logintriangle.png" class="triangle">
         <img src="locarrowone.png" class="locarrowone">
         <img src="locarrowtwo.png" class="locarrowtwo">
-     <?php if(!isset($_SESSION['loggedin'])){?>  <p><img src="infologo.png" class="infologo" href="registration.php"><span></span></p><?php } ?>s
 
         
       <!--  <div id="Hotspot";> 
@@ -168,25 +180,9 @@
             
 		<?php if(!isset($_SESSION['loggedin']))
 		{?>
-		<form action="index.php" method="post">
-            
-            <!-- Login code --> 
-            
-			<input type="text" class="username" placeholder="Username" name="username"/><br>
-            <input type="password" class="password" placeholder="Password" name="password"/>
-			<input type="hidden" name="login"/>
-            <input type="submit" class="login" name="login" > 
-            
-		</form>
+
 		
-	<form action="index.php" method="post">
-			Create New Account <br/>
-			Username: <input type="text" name="username"/><br>
-			Password: <input type="password" name="password"/>
-			<input type="hidden" name="CreateAccount"/>
-			<input type="submit"/> 
-		</form> 
-			<br/>
+	
 		<?php }
 		else 
 		{ ?>
@@ -209,17 +205,39 @@
 		
 		<br/>
 		<br/>
-		<form action="find.php" method="post">
-		 <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
-			<input id="yourSearch" type="text"  placeholder="My Location..." name="search2"/>
-			<input type="text" name="search"  placeholder="Their Location..." class="inputtwo"/>
-			<input type="submit" class="submitbutton" value="Search"/>
-			<input id="yourLat" type="hidden" name="lat"/>
-			<input id="yourLong" type="hidden" name="long"/>
-			<script>
-				
-			</script>
-		</form>
+		<div style="width: 600px; height: 325px; text-align: center; background-color: #FFF; border-radius: 50px; margin: 0px auto; margin-top: 100px; box-shadow: 0px 0px 10px #000;">
+			<div id="hotspot_main">
+				<form action="find.php" method="post">
+				 <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
+					<div style="width: 600px; height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">HotSpot</div>
+					<input class="inputBox3" readonly id="yourSearch" type="text"  placeholder="My Location..." name="search2"/>
+					<br/>
+					<input class="inputBox3" type="text" name="search"  placeholder="Where To?"/>
+					<br/><br/>
+					<input type="submit" class="submitbutton" value="Search"/>
+					<input id="yourLat" type="hidden" name="lat"/>
+					<input id="yourLong" type="hidden" name="long"/>
+					<div id="infologo" style="font-size: 14px; width: 500px; text-align: right; color: #0645AD;"><u>Create Account</u></div>	
+				</form>
+			</div>
+			<div id="create_main" style="display: none;">
+				<form action="index.php" method="post">
+					<br/>
+					<div style="width: 600px;  height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">Create New Account</div>
+					<input type="text" class="inputBox3" name="username" placeholder="username"/><br>
+					<input type="password" class="inputBox3" name="password" placeholder="password"/>
+					<input type="hidden" name="CreateAccount"/><br/><br/>
+					<input type="submit" class="submitbutton" value="Join HotSpot!"/> 
+					<div id="backLogo" style="font-size: 14px; width: 500px; text-align: right; color: #0645AD;"><u>Back</u></div>	
+				</form> 
+			<br/>
+			</div>
+			     <script>
+     	$('#create_main').hide();
+		$('#infologo').click(function(){ $('#hotspot_main').slideToggle(); $('#create_main').slideToggle(); });
+		$('#backLogo').click(function(){ $('#hotspot_main').slideToggle(); $('#create_main').slideToggle(); });
+	     </script>
+		</div>
 		<br/><br/>
 
 	</body>
