@@ -28,9 +28,18 @@
 
 		$longitude = $obj['geos'][0]['longitude'];
 		$latitude = $obj['geos'][0]['latitude'];		
-		$user = $_SESSION['userid'];
+		if(isset($_SESSION['loggedin']))
+		{
+			$user = $_SESSION['userid'];
+		}
+		else
+		{
+			$user = -1;
+		}
+		
 		
 		$data;
+		var_dump($_POST);
 		$data[0]['userid'] = $user;
 		$data[0]['long'] = $_POST['long'];
 		$data[0]['lat'] = $_POST['lat'];
@@ -72,7 +81,7 @@
 	}
 ?>
 
-<form action="map.php" method="post" name="frm">
+<!--  <form action="map.php" method="post" name="frm">
 	<input type='hidden' name='midLong' value="<?php echo $midLong; ?>"/>
 	<input type='hidden' name='midLat' value="<?php echo $midLat; ?>"/>
 	<input type='hidden' name='long1' value="<?php echo $yourLong; ?>"/>
@@ -83,4 +92,4 @@
 
 <script language="JavaScript">
 	document.frm.submit();
-</script>
+</script>-->

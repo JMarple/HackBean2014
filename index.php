@@ -106,9 +106,7 @@
 					 initialLong = position.coords.longitude;
 					 document.getElementById("yourSearch").value = "Your location has been added";
 					 document.getElementById("yourLat").value = initialLat;
-					 document.getElementById("yourLat2").value = initialLat;
-					 document.getElementById("yourLong").value = initialLong;
-					 document.getElementById("yourLong2").value = initialLong;
+					 document.getElementById("yourLong").value = initialLong;;
 					
 			    }, function() {
 			      handleNoGeolocation(browserSupportFlag);
@@ -213,7 +211,7 @@
 			<div id="hotspot_main">
 				<form action="find.php" method="post">
 				 <?php if(isset($_GET['err'])) echo "Error in search"?><br/>
-					<div style="width: 600px; height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">HotSpot</div>
+					<div style="width: 600px; height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">CrossPath</div>
 					<input class="inputBox3" readonly id="yourSearch" type="text"  placeholder="My Location..." name="search2"/>
 					<br/>
 					<input class="inputBox3" type="text" name="search"  placeholder="Where To?"/>
@@ -231,7 +229,7 @@
 					<input type="text" class="inputBox3" name="username" placeholder="username"/><br>
 					<input type="password" class="inputBox3" name="password" placeholder="password"/>
 					<input type="hidden" name="CreateAccount"/><br/><br/>
-					<input type="submit" class="submitbutton" value="Join HotSpot!"/> 
+					<input type="submit" class="submitbutton" value="Join CrossPath!"/> 
 					<div id="backLogo" class="hoverdiv" style="font-size: 14px; width: 500px; text-align: right; color: #0645AD;"><u>Back</u></div>	
 				</form> 
 			<br/>
