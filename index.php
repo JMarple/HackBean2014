@@ -151,9 +151,9 @@
         
         
         <img src="hotspot.png" href="http://secure-waters-3897.herokuapp.com/index.php"      class="logo" alt="HotSpot"> 
-     <img src="logintriangle.png" class="triangle">
+  <!--   <img src="logintriangle.png" class="triangle">
         <img src="locarrowone.png" class="locarrowone">
-        <img src="locarrowtwo.png" class="locarrowtwo">
+        <img src="locarrowtwo.png" class="locarrowtwo"> -->
      <?php if(!isset($_SESSION['loggedin'])){?>  <p><img src="infologo.png" class="infologo" href="registration.php"><span></span></p><?php } ?>s
 
         
