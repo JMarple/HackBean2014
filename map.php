@@ -32,7 +32,8 @@
 	}
 	else
 	{
-		header("Location: index.php");
+		echo "fu";
+		//header("Location: index.php");
 	}
 	
 	
