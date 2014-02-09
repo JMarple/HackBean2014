@@ -236,8 +236,11 @@
 		<div style="width: 600px; height: 325px; text-align: center; background-color: #FFF; border-radius: 50px; margin: 0px auto; margin-top: 100px; box-shadow: 0px 0px 10px #000;">
 			<div id="hotspot_main">
 				<form action="find.php" method="post">
-				 	<?php if(isset($_GET['err'])) echo "Error in search"?><br/>
+				 	
 					<div style="width: 600px; height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">CrossPath</div>
+					<?php if(isset($_GET['needLogin'])) { ?> <div style="width: 600px; height: 25px; font-size: 16px; color: red; font-family: Arial;">To Add Location, Please Log In!</div><?php } ?>
+					<?php if(isset($_GET['err'])) echo "<div style='color: red'>Error in search</div>"?><br/>
+					
 					<input class="inputBox3" readonly id="yourSearch" type="text"  placeholder="Goelocation not found yet..." name="search2"/>
 					<br/>
 					<input class="inputBox3" type="text" name="search"  placeholder="Where To?"/>

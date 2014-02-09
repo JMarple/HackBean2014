@@ -147,7 +147,8 @@ if(isset($_SESSION['loggedin']))
 }
 else
 {
-	echo "Error";
+	
+	header("Location: index.php?needLogin=true");	
 }
 
 ?>

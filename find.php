@@ -22,7 +22,7 @@
 		
 		//Convert to array
 		$obj = json_decode($request->body, true);
-		
+
 		if(!isset($obj['geos'][0]))
 			header("Location: index.php?err=s");
 
