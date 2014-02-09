@@ -263,9 +263,9 @@
 		</div>
 		<?php }
 		else {//$yourMaps ?>
-			<div style="width: 600px; height: 325px; text-align: center; background-color: #FFF; border-radius: 50px; margin: 0px auto; margin-top: 100px; box-shadow: 0px 0px 10px #000;">
+			<div style="width: 600px; height: 425px; text-align: center; background-color: #FFF; border-radius: 50px; margin: 0px auto; margin-top: 0px; box-shadow: 0px 0px 10px #000;">
 				<div style="width: 600px;  height: 75px; font-size: 48px; font-family: Arial; color: #BBB;">Your Profile</div>
-				<div style="float:left; overflow-y: scroll; overflow-x: hidden; margin-left: 50px; width: 200px; height: 250px; font-size: 18px; font-family: Arial;"> 
+				<div style="float:left; overflow-y: scroll; overflow-x: hidden; margin-left: 50px; width: 200px; height: 350px; font-size: 18px; font-family: Arial;"> 
 					<?php 
 					if (is_array($yourMaps))
 					{
@@ -281,7 +281,7 @@
 					}
 					?>
 				</div>
-				<div style="width:350px; height: 200px; float:right;">
+				<div style="width:350px; height: 300px; float:right;">
 				<form action="find.php" method="post">
 					<input class="inputBox3" readonly id="yourSearch" type="text"  placeholder="My Location..." style="width: 300px" name="search2"/>
 					<br/>

@@ -329,6 +329,10 @@
     		margin-left: 10px;
     		box-shadow: 0px 0px 2px #000;
     	}
+    	.selectionObject.green
+    	{
+    		border: 2px solid #797;
+    	}
     	.selectionObject:hover
     	{
     		background-color: #777777;
@@ -344,6 +348,7 @@
     		z-index: 10;
     		text-align: center;
     	}
+  
     	.dropdownArrow
     	{
     		width: 200px; 
@@ -434,7 +439,7 @@
 				 		place[i]['name'] + 
 					 "</div>"+
 					 "<img style='margin:5px' src='http://maps.googleapis.com/maps/api/streetview?size=130x80&location="+place[i]['latitude']+","+place[i]['longitude']+"&fov=90&heading=235&pitch=10&sensor=false'/>" +
-				"<script>< /script>"+
+				"<script>$('#place"+i+"').click(function(){ console.log('hi');  });< /script>"+
 				"</div>";
 			 document.getElementById('selectionBar').innerHTML = document.getElementById('selectionBar').innerHTML + content;
 		 }
