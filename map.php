@@ -15,6 +15,7 @@
 	
 	if($result = mysql_query("SELECT * FROM `heroku_807bde1acfd096e`.`group` WHERE `ID`='$userid'"))
 	{		
+		var_dump($result);
 		if(mysql_num_rows($result) > 0)
 		{
 			$row = mysql_fetch_assoc($result);
