@@ -143,6 +143,10 @@
         		<form action="index.php" method="post">
             
             <!-- Login code --> 
+           <?php if(!isset($_SESSION['loggedin']))
+           {
+           
+           ?>
             <div style="height: 45px; width: 200px; position: absolute; float: rigt; right: 50px;">
 				<input type="text" class="username" placeholder="Username" name="username"/><br>
             </div>
@@ -151,7 +155,7 @@
 			</div>
 			<input type="hidden" name="login"/>
             <input type="submit" class="login" name="login" > 
-            
+            <?php }?>
 		</form></div>
         
         <div id="login"; ></div>
@@ -163,10 +167,10 @@
         
         
         
-        <img src="hotspot.png" href="http://secure-waters-3897.herokuapp.com/index.php"      class="logo" alt="HotSpot"> 
-     <img src="logintriangle.png" class="triangle">
+       <img src="hotspot.png" href="http://secure-waters-3897.herokuapp.com/index.php"  class="logo" alt="HotSpot">  
+   <!--    <img src="logintriangle.png" class="triangle">
         <img src="locarrowone.png" class="locarrowone">
-        <img src="locarrowtwo.png" class="locarrowtwo">
+        <img src="locarrowtwo.png" class="locarrowtwo">-->
 
         
       <!--  <div id="Hotspot";> 
@@ -217,7 +221,7 @@
 					<input type="submit" class="submitbutton" value="Search"/>
 					<input id="yourLat" type="hidden" name="lat"/>
 					<input id="yourLong" type="hidden" name="long"/>
-					<div id="infologo" style="font-size: 14px; width: 500px; text-align: right; color: #0645AD;"><u>Create Account</u></div>	
+					<?php if(!isset($_SESSION['loggedin'])){?><div id="infologo" class="hoverdiv" style="font-size: 14px; width: 500px; text-align: right; color: #0645AD;"><u>Create Account</u></div><?php }?>	
 				</form>
 			</div>
 			<div id="create_main" style="display: none;">
@@ -228,7 +232,7 @@
 					<input type="password" class="inputBox3" name="password" placeholder="password"/>
 					<input type="hidden" name="CreateAccount"/><br/><br/>
 					<input type="submit" class="submitbutton" value="Join HotSpot!"/> 
-					<div id="backLogo" style="font-size: 14px; width: 500px; text-align: right; color: #0645AD;"><u>Back</u></div>	
+					<div id="backLogo" class="hoverdiv" style="font-size: 14px; width: 500px; text-align: right; color: #0645AD;"><u>Back</u></div>	
 				</form> 
 			<br/>
 			</div>

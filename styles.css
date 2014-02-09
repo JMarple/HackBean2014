@@ -131,16 +131,20 @@ input:focus, textarea:focus {
 } 
 
 .logo {
-    
-    margin-top:-5px;
+	margin-top: 2px;
+    margin-left: 10px; 
     position:absolute;
     z-index: 2;
     
-    height: 30px;
-    width: 65px;
+    height: 40px;
+    width: 80px;
     
     
 } 
+.logo:hover
+{
+	cursor: pointer;
+}
 
 /* Breadcrumb text above search boxes */
 
@@ -349,28 +353,32 @@ p:hover span{
 .logout:hover {
  
     color:lightblue;
+    cusor:pointer;
 }
 
 .newgroup {
     
      
       content:'';
-      font-size: 0.8vw;
+      font-size: 14px;
       cursor:pointer;
       color:#fff;
-      height: 25px;
-      width: 6%;
+      
+      height: 30px;
+      width: 100px;
       font-family:  "verdana", sans-serif;
     
       position:absolute;
-      left:92%;
-      top:0.3%;
+      right: 10px;
+      top:0px;
     
        margin: 0;
        padding: 0;
        background: #00A5D9 url(image) 0 0 no-repeat; 
        border: none;
     z-index:207;
+    
+    margin-top: 6px;
     
       border-top-left-radius: 5px 5px;
     border-top-right-radius: 5px 5px;
@@ -393,4 +401,9 @@ p:hover span{
 	border: 1px solid #CCC;
 	padding-left: 10px;
 	box-shadow: inset 0px 0px 2px #000;
+}
+
+.hoverdiv:hover
+{
+	cursor:pointer;
 }

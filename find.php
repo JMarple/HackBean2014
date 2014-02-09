@@ -1,5 +1,15 @@
 <?php 
-
+	$host = "us-cdbr-east-05.cleardb.net";
+	$user = "b85ad415edfa4d";
+	$pass = "df62fd56";
+	
+	$db = "hackbean";
+	
+	mysql_connect($host, $user, $pass);
+	mysql_select_db($db);
+	
+	session_start();
+	
 	if(isset($_POST['search']))
 	{
 		require_once "Requests/Requests/library/Requests.php";
@@ -17,13 +27,32 @@
 			header("Location: index.php?err=s");
 
 		$longitude = $obj['geos'][0]['longitude'];
-		$latitude = $obj['geos'][0]['latitude'];
+		$latitude = $obj['geos'][0]['latitude'];		
+		$user = $_SESSION['userid'];
 		
-		$yourLat = $_POST['lat'];
+		$data;
+		$data[0]['userid'] = $user;
+		$data[0]['long'] = $_POST['long'];
+		$data[0]['lat'] = $_POST['lat'];
+		$data[1]['userid'] = -1;
+		$data[1]['long'] = $longitude;
+		$data[1]['lat'] = $latitude;
+		
+		$json = json_encode($data);
+		if($result = mysql_query("INSERT INTO `heroku_807bde1acfd096e`.`group` (`users`, `date`) VALUES ('$json', NOW())"))
+		{
+			$id = mysql_insert_id();
+			header("Location: map.php?id=".$id);
+		}
+		else
+		{
+			echo mysql_error();
+		}
+		/*$yourLat = $_POST['lat'];
 		$yourLong = $_POST['long'];
 		
 		$midLong = ($longitude + $yourLong)/2;
-		$midLat = ($latitude + $yourLat)/2;
+		$midLat = ($latitude + $yourLat)/2;*/
 		//$data;
 		
 		//$i = 0;

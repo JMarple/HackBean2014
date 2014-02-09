@@ -10,6 +10,7 @@ if(isset($_SESSION['loggedin']))
 	
 	mysql_connect($host, $user, $pass);
 	mysql_select_db($db);
+	
 	if(isset($_POST['newGroup']))
 	{		
 		$user = $_SESSION['userid'];
